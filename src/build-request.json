@@ -1,0 +1,302 @@
+{
+  "kind": "build_request",
+  "title": "Thepla brand marketing + catalog website with brand story, product category sliders, cart, and contact/FAQ pages",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a responsive multi-page website for a thepla brand with a clear home page narrative flow and dedicated pages/sections for Home, Categories, Cart, Notifications, Account, FAQ, and Contact.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Create a website for a thepla brand",
+          "Add at the bottom Home Categories Cart Notification Account",
+          "Also add Faq page",
+          "Contact details"
+        ]
+      },
+      "acceptanceCriteria": [
+        "App loads with working navigation to: Home, Categories, Cart, Notifications, Account, FAQ, Contact.",
+        "Pages render well on mobile and desktop (no horizontal overflow; readable typography)."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Add an editable branding header area that leaves space for the user to set/replace the brand name and logo (including a visible placeholder when unset).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "leave space for me to edit logo and brand name"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Header shows a logo placeholder and brand name placeholder by default.",
+        "User can edit brand name text in the UI and see it reflected across the site during the session.",
+        "User can upload/select a logo image in the UI and see it in the header during the session (no backend required)."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Add a \"Brand Story\" section on the Home page using the provided narrative text (verbatim, with appropriate paragraph formatting) and make it visually prominent.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Starting add story of the brand Some memories never fade..."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Brand Story section appears on Home and contains the full provided story text, formatted into readable paragraphs.",
+        "Text is presented in English and is not truncated."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Add a separate Home page section titled in English that explains how the brand supports/creates \"Griha Mahila Udyog\" (women working from home, financial independence), aligned with the intent of the user’s request and consistent with the story tone.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Write a story how brand inculcates Griha mahila udyog we are planning"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Section is present on Home and written in English.",
+        "Content clearly explains the at-home women empowerment model and ties back to the brand mission."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement a Categories page (and/or Categories section) that displays thepla products grouped into these categories with per-category slider/carousel browsing, showing product name, pack size, and price with the Indian Rupee symbol (₹): Long Duration (3 Months): Masala Thepla ₹40 (Piece of 4), Methi Thepla ₹45–₹50 (Piece of 4), Til Thepla ₹48 (Piece of 4); Short Duration (1 Day): Dudhi Thepla ₹60 (Piece of 4), Spinach Thepla ₹68 (Piece of 4); Diet Conscious: Multigrain Thepla ₹165 (Piece of 5), Bajra + Wheat Thepla ₹95 (Piece of 5), Nachani Thepla ₹128 (Piece of 5).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Add products of brand in categorize form",
+          "give each category product in a slider format view",
+          "Add indian rupee symbol",
+          "1. Long Duration (3 Months) ...",
+          "2. Short Duration (1 Day) ...",
+          "3. Diet Conscious ..."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Categories are displayed exactly as: Long Duration (3 Months), Short Duration (1 Day), Diet Conscious.",
+        "Each category renders products in a horizontal slider/carousel that can be navigated on mobile (swipe/scroll) and desktop (buttons or scroll).",
+        "Each product card shows: unbranded realistic product image, product name, pack size text, and price using ₹.",
+        "Methi Thepla price is displayed as a range (₹45–₹50) rather than a single value."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Add an \"Other Products\" section with a slider/carousel showing items with realistic unbranded images and ₹ pricing where provided. Include at minimum: Lime ₹95 (500g), Mango ₹110 (500g), and also list: Chilli (500g), Awla (500g), Carrot (500g), Chunda (500g), Thecha (500g). Quantity must be user-customizable per item (e.g., selectable/enterable quantity and/or weight), without requiring backend.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Other products use slider for the product to view add realistic image no brand mentioned Quantity can Be customizable",
+          "Lime  95 rupees (500g)",
+          "Mango 110 (500g)",
+          "Chilli (500g) Awla (500g) Carrot (500g) Chunda (500g) Thecha (500g)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Other Products section uses a horizontal slider/carousel on mobile and desktop.",
+        "Items with prices show ₹95 and ₹110 respectively; items without prices do not show a fake price.",
+        "Each item shows its (500g) pack size label.",
+        "Each item provides a quantity control (e.g., stepper) that changes the selected quantity for cart actions during the session."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Implement basic cart functionality: users can add items from any slider to a Cart page, adjust quantities, and remove items. Cart should compute line totals and a grand total using ₹ and persist locally in the browser.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Cart"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Add-to-cart action exists on product cards.",
+        "Cart page lists added items with quantity controls and remove option.",
+        "Grand total updates correctly when quantities change.",
+        "Cart contents persist across page refresh using local storage (or equivalent browser storage)."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Add a bottom navigation bar visible on mobile (and optionally desktop) containing: Home, Categories, Cart, Notification, Account; each item must navigate to its respective page/route.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Add at the bottom Home Categories Cart Notification Account"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Bottom nav is fixed at the bottom on mobile and does not overlap primary content (content has proper padding).",
+        "Tapping each nav item navigates to the correct page.",
+        "Current page is visually indicated as active."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Create Notifications and Account pages as simple placeholders consistent with the site theme (no authentication required), so navigation destinations are complete and not broken.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Notification",
+          "Account"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Notifications page renders a non-empty placeholder layout (English).",
+        "Account page renders a non-empty placeholder layout (English).",
+        "No dead links/routes for these pages."
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Add an FAQ page with an FAQ accordion layout containing questions/answers relevant to the brand (shelf life, storage, ingredients/no preservatives, delivery/ordering, women-led production), written in English and consistent with the provided brand story.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Also add Faq page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "FAQ page exists and is reachable from navigation (header menu, footer, or bottom nav via Account/More).",
+        "FAQs are displayed in an accordion where items expand/collapse.",
+        "All FAQ text is in English."
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Add a Contact page (or prominent Contact section) showing: Contact number 9785674345, Location Mulund East, and fields/placeholders for Email ID and Instagram handle (since values were not provided).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Contact details",
+          "Contact number – 9785674345",
+          "Location – Mulund East",
+          "Email id",
+          "Instagram Handle"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Contact info displays phone number exactly: 9785674345.",
+        "Location displays exactly: Mulund East.",
+        "Email and Instagram are shown as placeholders/fields that the user can fill in (no backend required)."
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Use the Lijjat Papad website as a structural/reference inspiration (sections like legacy/story, women empowerment, quality/trust, product catalog, FAQ, contact) without copying brand names or copyrighted text; ensure this website includes the points requested in this prompt in a cohesive layout.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "For refrence refer website of lijaat papad include all points given by them in their website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Site layout includes clear sections for legacy/story, women empowerment, and quality/trust alongside product catalog, FAQ, and contact.",
+        "No mention of Lijjat Papad as the brand of this site, and no copied text that appears to be from that site."
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Establish a cohesive visual theme (colors, typography, spacing, and component styling) appropriate for an Indian homemade food brand (warm, appetizing, traditional-modern blend) and apply it consistently across all pages; avoid blue/purple as primary colors.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Theme is consistent across pages (buttons, headings, cards, nav).",
+        "Primary palette is not blue/purple.",
+        "UI looks like a food brand site (warm neutrals/spice tones, tasteful typography)."
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Add the required generated product images as static assets under frontend/public/assets/generated and render them in product cards; images must be realistic and unbranded (no logos or brand text on packaging).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "add realistic image no brand mentioned image for each product"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All product cards display an image loaded from frontend/public/assets/generated.",
+        "Images are realistic and contain no visible brand text/logos.",
+        "No images are served from the backend canister."
+      ]
+    }
+  ],
+  "constraints": [
+    "Frontend immutable paths must not be edited: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui.",
+    "Backend must remain single-actor Motoko; only add backend requirements if strictly needed.",
+    "Use English for any user-facing text in the build request (and implement user-facing UI text in English)."
+  ],
+  "nonGoals": [
+    "Implementing online payments or checkout processing.",
+    "Third-party authentication (Internet Identity) and user accounts with persistence.",
+    "Real-time notifications or messaging.",
+    "Admin CMS for managing products (products can be hardcoded for this build)."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Realistic unbranded photo of masala thepla stacked on a plate (thepla-masala.dim_1024x1024.png)",
+      "Realistic unbranded photo of methi thepla stacked on a plate (thepla-methi.dim_1024x1024.png)",
+      "Realistic unbranded photo of til (sesame) thepla on a plate (thepla-til.dim_1024x1024.png)",
+      "Realistic unbranded photo of dudhi (bottle gourd) thepla on a plate (thepla-dudhi.dim_1024x1024.png)",
+      "Realistic unbranded photo of spinach thepla on a plate (thepla-spinach.dim_1024x1024.png)",
+      "Realistic unbranded photo of multigrain thepla on a plate (thepla-multigrain.dim_1024x1024.png)",
+      "Realistic unbranded photo of bajra + wheat thepla on a plate (thepla-bajra-wheat.dim_1024x1024.png)",
+      "Realistic unbranded photo of nachani (ragi) thepla on a plate (thepla-nachani.dim_1024x1024.png)",
+      "Realistic unbranded photo of lime pickle in a plain glass jar (pickle-lime.dim_1024x1024.png)",
+      "Realistic unbranded photo of mango pickle in a plain glass jar (pickle-mango.dim_1024x1024.png)",
+      "Realistic unbranded photo of red chilli pickle in a plain glass jar (pickle-chilli.dim_1024x1024.png)",
+      "Realistic unbranded photo of amla (awla) pickle in a plain glass jar (pickle-amla.dim_1024x1024.png)",
+      "Realistic unbranded photo of carrot pickle in a plain glass jar (pickle-carrot.dim_1024x1024.png)",
+      "Realistic unbranded photo of chunda (sweet mango relish) in a plain glass jar (pickle-chunda.dim_1024x1024.png)",
+      "Realistic unbranded photo of thecha (chilli-garlic chutney) in a plain glass jar (pickle-thecha.dim_1024x1024.png)"
+    ],
+    "edits": []
+  }
+}

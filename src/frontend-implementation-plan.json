@@ -1,0 +1,460 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Thepla brand marketing + catalog website (multi-page, sliders, cart, FAQ, contact)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Build a responsive multi-page site with routes/pages for Home, Categories, Cart, Notifications, Account, FAQ, and Contact, with working navigation.",
+      "acceptanceCriteria": [
+        "App loads with working navigation to: Home, Categories, Cart, Notifications, Account, FAQ, Contact.",
+        "Pages render well on mobile and desktop (no horizontal overflow; readable typography)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the main app shell with React Router routes for Home, Categories, Cart, Notifications, Account, FAQ, and Contact, and wire shared layout (header + bottom nav + content padding)."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "create",
+          "description": "Create Home page with required narrative sections and cohesive layout blocks."
+        },
+        {
+          "path": "frontend/src/pages/CategoriesPage.tsx",
+          "operation": "create",
+          "description": "Create Categories page and wire it to the router."
+        },
+        {
+          "path": "frontend/src/pages/CartPage.tsx",
+          "operation": "create",
+          "description": "Create Cart page and wire it to the router."
+        },
+        {
+          "path": "frontend/src/pages/NotificationsPage.tsx",
+          "operation": "create",
+          "description": "Create Notifications placeholder page and wire it to the router."
+        },
+        {
+          "path": "frontend/src/pages/AccountPage.tsx",
+          "operation": "create",
+          "description": "Create Account placeholder page and wire it to the router."
+        },
+        {
+          "path": "frontend/src/pages/FaqPage.tsx",
+          "operation": "create",
+          "description": "Create FAQ page and wire it to the router."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "create",
+          "description": "Create Contact page and wire it to the router."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add an editable branding header with in-UI brand name and logo placeholders, editable for the current session without backend.",
+      "acceptanceCriteria": [
+        "Header shows a logo placeholder and brand name placeholder by default.",
+        "User can edit brand name text in the UI and see it reflected across the site during the session.",
+        "User can upload/select a logo image in the UI and see it in the header during the session (no backend required)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/BrandProvider.tsx",
+          "operation": "create",
+          "description": "Create a Brand context/provider to store brand name and selected logo (object URL) in memory for the session and expose setters for site-wide use."
+        },
+        {
+          "path": "frontend/src/components/HeaderBranding.tsx",
+          "operation": "create",
+          "description": "Create the header branding UI with visible placeholders when unset, an editable brand name control, and a logo file picker that updates the BrandProvider state."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap the app layout with BrandProvider and render HeaderBranding across all pages so branding changes reflect site-wide during the session."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add a visually prominent Brand Story section on Home using the provided narrative text verbatim with readable paragraph formatting.",
+      "acceptanceCriteria": [
+        "Brand Story section appears on Home and contains the full provided story text, formatted into readable paragraphs.",
+        "Text is presented in English and is not truncated."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Add a prominent \"Brand Story\" section on Home and include the full provided narrative text verbatim, formatted into readable paragraphs (no truncation)."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Create global styles (Tailwind base + CSS variables) and ensure typography defaults support readable long-form paragraphs for the Brand Story section."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Add a Home section (English title) explaining the Griha Mahila Udyog women-from-home empowerment model aligned with brand mission.",
+      "acceptanceCriteria": [
+        "Section is present on Home and written in English.",
+        "Content clearly explains the at-home women empowerment model and ties back to the brand mission."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Add a dedicated Home section with an English title explaining the Griha Mahila Udyog model (women working from home, financial independence) and connect it to the brand mission/tone."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Implement Categories view with three category carousels showing the specified thepla products, pack sizes, and ₹ pricing (including a range for Methi Thepla).",
+      "acceptanceCriteria": [
+        "Categories are displayed exactly as: Long Duration (3 Months), Short Duration (1 Day), Diet Conscious.",
+        "Each category renders products in a horizontal slider/carousel that can be navigated on mobile (swipe/scroll) and desktop (buttons or scroll).",
+        "Each product card shows: unbranded realistic product image, product name, pack size text, and price using ₹.",
+        "Methi Thepla price is displayed as a range (₹45–₹50) rather than a single value."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/data/products.ts",
+          "operation": "create",
+          "description": "Create hardcoded product data for thepla categories (names, pack size labels, ₹ prices including range for Methi Thepla) and map each item to the required generated image asset paths under frontend/public/assets/generated."
+        },
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "create",
+          "description": "Create a reusable ProductCard that renders product image, name, pack size, and price formatting with the ₹ symbol (supporting a displayed range when provided)."
+        },
+        {
+          "path": "frontend/src/components/ProductCarousel.tsx",
+          "operation": "create",
+          "description": "Create a horizontally scrollable carousel/slider component supporting touch scrolling on mobile and button/scroll controls on desktop for category product browsing."
+        },
+        {
+          "path": "frontend/src/pages/CategoriesPage.tsx",
+          "operation": "modify",
+          "description": "Render the three required categories exactly by name and display each category's products using ProductCarousel and ProductCard."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Ensure Categories page route and navigation wiring are present so the Categories carousels are reachable."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Add an Other Products slider with specified items, realistic unbranded images, optional ₹ pricing, (500g) labels, and per-item session quantity controls.",
+      "acceptanceCriteria": [
+        "Other Products section uses a horizontal slider/carousel on mobile and desktop.",
+        "Items with prices show ₹95 and ₹110 respectively; items without prices do not show a fake price.",
+        "Each item shows its (500g) pack size label.",
+        "Each item provides a quantity control (e.g., stepper) that changes the selected quantity for cart actions during the session."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/data/products.ts",
+          "operation": "modify",
+          "description": "Add Other Products items (Lime, Mango with ₹ prices; Chilli, Awla, Carrot, Chunda, Thecha without prices) with (500g) pack size labels and required generated image asset paths under frontend/public/assets/generated."
+        },
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "modify",
+          "description": "Add an optional per-item quantity control (session state) for \"Other Products\" cards and ensure items without prices do not render a fake price label."
+        },
+        {
+          "path": "frontend/src/pages/CategoriesPage.tsx",
+          "operation": "modify",
+          "description": "Add an \"Other Products\" section using ProductCarousel and ProductCard, ensuring quantity selection influences add-to-cart actions for the session."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Implement a persistent local cart: add from product cards, update quantities, remove items, and compute line totals and grand total in ₹.",
+      "acceptanceCriteria": [
+        "Add-to-cart action exists on product cards.",
+        "Cart page lists added items with quantity controls and remove option.",
+        "Grand total updates correctly when quantities change.",
+        "Cart contents persist across page refresh using local storage (or equivalent browser storage)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/cart/CartProvider.tsx",
+          "operation": "create",
+          "description": "Create a Cart context/provider with add/remove/update quantity actions, line total and grand total computation in ₹, and localStorage persistence across refresh."
+        },
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "modify",
+          "description": "Add an Add-to-Cart action that uses CartProvider to add items from both thepla and other-product carousels (respecting selected quantity for other products)."
+        },
+        {
+          "path": "frontend/src/pages/CartPage.tsx",
+          "operation": "modify",
+          "description": "Implement cart UI listing items with quantity controls, remove actions, line totals, and a ₹ grand total; bind to CartProvider state so totals update live."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap the app with CartProvider so cart state is available across pages and persists via browser storage."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Add a fixed bottom navigation bar on mobile with Home, Categories, Cart, Notification, Account; active state and content padding to avoid overlap.",
+      "acceptanceCriteria": [
+        "Bottom nav is fixed at the bottom on mobile and does not overlap primary content (content has proper padding).",
+        "Tapping each nav item navigates to the correct page.",
+        "Current page is visually indicated as active."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/BottomNav.tsx",
+          "operation": "create",
+          "description": "Create a fixed mobile bottom navigation component with items: Home, Categories, Cart, Notification, Account; include active-state styling based on current route."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire BottomNav into the shared layout and ensure the main content area has bottom padding so the fixed nav does not overlap content."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Adjust global layout helpers (e.g., safe-area and spacing defaults) to support a fixed bottom nav without horizontal overflow."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Provide non-empty themed placeholder pages for Notifications and Account (no auth) so navigation destinations are complete.",
+      "acceptanceCriteria": [
+        "Notifications page renders a non-empty placeholder layout (English).",
+        "Account page renders a non-empty placeholder layout (English).",
+        "No dead links/routes for these pages."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/NotificationsPage.tsx",
+          "operation": "modify",
+          "description": "Implement a themed, non-empty Notifications placeholder layout in English (no real-time notifications required)."
+        },
+        {
+          "path": "frontend/src/pages/AccountPage.tsx",
+          "operation": "modify",
+          "description": "Implement a themed, non-empty Account placeholder layout in English (no authentication required)."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Ensure routes and navigation destinations for Notifications and Account are registered and reachable."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Create an English FAQ page with an accordion UI covering shelf life, storage, ingredients/no preservatives, delivery/ordering, and women-led production.",
+      "acceptanceCriteria": [
+        "FAQ page exists and is reachable from navigation (header menu, footer, or bottom nav via Account/More).",
+        "FAQs are displayed in an accordion where items expand/collapse.",
+        "All FAQ text is in English."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/FaqAccordion.tsx",
+          "operation": "create",
+          "description": "Create a lightweight accordion component for FAQs (expand/collapse behavior and accessible button semantics)."
+        },
+        {
+          "path": "frontend/src/pages/FaqPage.tsx",
+          "operation": "modify",
+          "description": "Add FAQ content in English relevant to the brand (shelf life, storage, ingredients/no preservatives, delivery/ordering, women-led production) and render it using FaqAccordion."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Ensure FAQ route is registered and reachable via site navigation (e.g., from header links and/or Contact/Account area)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Add a Contact page showing phone number and location, plus editable placeholders for Email ID and Instagram handle (no backend).",
+      "acceptanceCriteria": [
+        "Contact info displays phone number exactly: 9785674345.",
+        "Location displays exactly: Mulund East.",
+        "Email and Instagram are shown as placeholders/fields that the user can fill in (no backend required)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "modify",
+          "description": "Render Contact info with phone number 9785674345 and location Mulund East, plus input fields/placeholders for Email ID and Instagram handle stored in local component state (no backend)."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Ensure Contact route is registered and linked from navigation so the Contact page is reachable."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Structure the site with sections inspired by a legacy/women-empowerment/quality-trust product-catalog flow without copying or mentioning Lijjat Papad.",
+      "acceptanceCriteria": [
+        "Site layout includes clear sections for legacy/story, women empowerment, and quality/trust alongside product catalog, FAQ, and contact.",
+        "No mention of Lijjat Papad as the brand of this site, and no copied text that appears to be from that site."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Organize Home into clear sections (legacy/story, women empowerment, quality/trust) and include strong calls-to-action linking to Categories, FAQ, and Contact—without mentioning Lijjat Papad or copying external text."
+        },
+        {
+          "path": "frontend/src/components/HeaderBranding.tsx",
+          "operation": "modify",
+          "description": "Add simple header navigation links to key pages (e.g., Categories, FAQ, Contact) to support the cohesive marketing-site structure while keeping the site branded as Thepla (not Lijjat Papad)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Create and apply a cohesive warm, appetizing visual theme (no blue/purple primary) across buttons, headings, cards, and navigation.",
+      "acceptanceCriteria": [
+        "Theme is consistent across pages (buttons, headings, cards, nav).",
+        "Primary palette is not blue/purple.",
+        "UI looks like a food brand site (warm neutrals/spice tones, tasteful typography)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define warm/spice-toned CSS variables for the Tailwind/shadcn color tokens (primary/secondary/accent/background/foreground), set typography defaults, and ensure consistent spacing; avoid blue/purple as primary."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Tune Tailwind theme extensions as needed to support the chosen warm palette and consistent component styling (no blue/purple as primary)."
+        },
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "modify",
+          "description": "Apply consistent themed styling (card, buttons, text hierarchy) aligned with the warm food-brand theme."
+        },
+        {
+          "path": "frontend/src/components/BottomNav.tsx",
+          "operation": "modify",
+          "description": "Apply consistent themed styling and clear active-state indication aligned with the warm food-brand theme."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Add required generated product images under frontend/public/assets/generated and render them on product cards as realistic, unbranded static assets.",
+      "acceptanceCriteria": [
+        "All product cards display an image loaded from frontend/public/assets/generated.",
+        "Images are realistic and contain no visible brand text/logos.",
+        "No images are served from the backend canister."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/thepla-masala.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated static asset image file exactly at this path (realistic, unbranded)."
+        },
+        {
+          "path": "frontend/public/assets/generated/thepla-methi.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated static asset image file exactly at this path (realistic, unbranded)."
+        },
+        {
+          "path": "frontend/public/assets/generated/thepla-til.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated static asset image file exactly at this path (realistic, unbranded)."
+        },
+        {
+          "path": "frontend/public/assets/generated/thepla-dudhi.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated static asset image file exactly at this path (realistic, unbranded)."
+        },
+        {
+          "path": "frontend/public/assets/generated/thepla-spinach.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated static asset image file exactly at this path (realistic, unbranded)."
+        },
+        {
+          "path": "frontend/public/assets/generated/thepla-multigrain.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated static asset image file exactly at this path (realistic, unbranded)."
+        },
+        {
+          "path": "frontend/public/assets/generated/thepla-bajra-wheat.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated static asset image file exactly at this path (realistic, unbranded)."
+        },
+        {
+          "path": "frontend/public/assets/generated/thepla-nachani.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated static asset image file exactly at this path (realistic, unbranded)."
+        },
+        {
+          "path": "frontend/public/assets/generated/pickle-lime.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated static asset image file exactly at this path (realistic, unbranded)."
+        },
+        {
+          "path": "frontend/public/assets/generated/pickle-mango.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated static asset image file exactly at this path (realistic, unbranded)."
+        },
+        {
+          "path": "frontend/public/assets/generated/pickle-chilli.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated static asset image file exactly at this path (realistic, unbranded)."
+        },
+        {
+          "path": "frontend/public/assets/generated/pickle-amla.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated static asset image file exactly at this path (realistic, unbranded)."
+        },
+        {
+          "path": "frontend/public/assets/generated/pickle-carrot.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated static asset image file exactly at this path (realistic, unbranded)."
+        },
+        {
+          "path": "frontend/public/assets/generated/pickle-chunda.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated static asset image file exactly at this path (realistic, unbranded)."
+        },
+        {
+          "path": "frontend/public/assets/generated/pickle-thecha.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated static asset image file exactly at this path (realistic, unbranded)."
+        },
+        {
+          "path": "frontend/src/data/products.ts",
+          "operation": "modify",
+          "description": "Ensure every product item references its corresponding generated image path under frontend/public/assets/generated (no backend image serving)."
+        },
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "modify",
+          "description": "Render product images using the static asset paths from frontend/public/assets/generated and ensure they display consistently and responsively in cards."
+        }
+      ]
+    }
+  ]
+}

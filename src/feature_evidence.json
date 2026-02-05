@@ -1,0 +1,285 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-responsive-multi-page-website-for-a-thepla-brand-with-a-clear-home-page-narrative-flow-and-dedicated-pages-sections-for-home-categories-cart-notifications-account-faq-and-contact",
+      "featureTitle": "Create a responsive multi-page website for a thepla brand with a clear home page narrative flow and dedicated pages/sections for Home, Categories, Cart, Notifications, Account, FAQ, and Contact.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/AccountPage.tsx",
+        "frontend/src/pages/CartPage.tsx",
+        "frontend/src/pages/CategoriesPage.tsx",
+        "frontend/src/pages/ContactPage.tsx",
+        "frontend/src/pages/FaqPage.tsx",
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/src/pages/NotificationsPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-an-editable-branding-header-area-that-leaves-space-for-the-user-to-set-replace-the-brand-name-and-logo-including-a-visible-placeholder-when-unset",
+      "featureTitle": "Add an editable branding header area that leaves space for the user to set/replace the brand name and logo (including a visible placeholder when unset).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/BrandProvider.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-brand-story-section-on-the-home-page-using-the-provided-narrative-text-verbatim-with-appropriate-paragraph-formatting-and-make-it-visually-prominent",
+      "featureTitle": "Add a \"Brand Story\" section on the Home page using the provided narrative text (verbatim, with appropriate paragraph formatting) and make it visually prominent.",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-separate-home-page-section-titled-in-english-that-explains-how-the-brand-supports-creates-griha-mahila-udyog-women-working-from-home-financial-independence-aligned-with-the-intent-of-the-user-s-request-and-consistent-with-the-story-tone",
+      "featureTitle": "Add a separate Home page section titled in English that explains how the brand supports/creates \"Griha Mahila Udyog\" (women working from home, financial independence), aligned with the intent of the user’s request and consistent with the story tone.",
+      "files": [
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-categories-page-and-or-categories-section-that-displays-thepla-products-grouped-into-these-categories-with-per-category-slider-carousel-browsing-showing-product-name-pack-size-and-price-with-the-indian-rupee-symbol-long-duration-3-months-masala-thepla-40-piece-of-4-methi-thepla-45-50-piece-of-4-til-thepla-48-piece-of-4-short-duration-1-day-dudhi-thepla-60-piece-of-4-spinach-thepla-68-piece-of-4-diet-conscious-multigrain-thepla-165-piece-of-5-bajra-wheat-thepla-95-piece-of-5-nachani-thepla-128-piece-of-5",
+      "featureTitle": "Implement a Categories page (and/or Categories section) that displays thepla products grouped into these categories with per-category slider/carousel browsing, showing product name, pack size, and price with the Indian Rupee symbol (₹): Long Duration (3 Months): Masala Thepla ₹40 (Piece of 4), Methi Thepla ₹45–₹50 (Piece of 4), Til Thepla ₹48 (Piece of 4); Short Duration (1 Day): Dudhi Thepla ₹60 (Piece of 4), Spinach Thepla ₹68 (Piece of 4); Diet Conscious: Multigrain Thepla ₹165 (Piece of 5), Bajra + Wheat Thepla ₹95 (Piece of 5), Nachani Thepla ₹128 (Piece of 5).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ProductCard.tsx",
+        "frontend/src/components/ProductCarousel.tsx",
+        "frontend/src/data/products.ts",
+        "frontend/src/pages/CategoriesPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-an-other-products-section-with-a-slider-carousel-showing-items-with-realistic-unbranded-images-and-pricing-where-provided-include-at-minimum-lime-95-500g-mango-110-500g-and-also-list-chilli-500g-awla-500g-carrot-500g-chunda-500g-thecha-500g-quantity-must-be-user-customizable-per-item-e-g-selectable-enterable-quantity-and-or-weight-without-requiring-backend",
+      "featureTitle": "Add an \"Other Products\" section with a slider/carousel showing items with realistic unbranded images and ₹ pricing where provided. Include at minimum: Lime ₹95 (500g), Mango ₹110 (500g), and also list: Chilli (500g), Awla (500g), Carrot (500g), Chunda (500g), Thecha (500g). Quantity must be user-customizable per item (e.g., selectable/enterable quantity and/or weight), without requiring backend.",
+      "files": [
+        "frontend/src/components/ProductCard.tsx",
+        "frontend/src/data/products.ts",
+        "frontend/src/pages/CategoriesPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-basic-cart-functionality-users-can-add-items-from-any-slider-to-a-cart-page-adjust-quantities-and-remove-items-cart-should-compute-line-totals-and-a-grand-total-using-and-persist-locally-in-the-browser",
+      "featureTitle": "Implement basic cart functionality: users can add items from any slider to a Cart page, adjust quantities, and remove items. Cart should compute line totals and a grand total using ₹ and persist locally in the browser.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/cart/CartProvider.tsx",
+        "frontend/src/components/ProductCard.tsx",
+        "frontend/src/pages/CartPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-bottom-navigation-bar-visible-on-mobile-and-optionally-desktop-containing-home-categories-cart-notification-account-each-item-must-navigate-to-its-respective-page-route",
+      "featureTitle": "Add a bottom navigation bar visible on mobile (and optionally desktop) containing: Home, Categories, Cart, Notification, Account; each item must navigate to its respective page/route.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/BottomNav.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-notifications-and-account-pages-as-simple-placeholders-consistent-with-the-site-theme-no-authentication-required-so-navigation-destinations-are-complete-and-not-broken",
+      "featureTitle": "Create Notifications and Account pages as simple placeholders consistent with the site theme (no authentication required), so navigation destinations are complete and not broken.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/AccountPage.tsx",
+        "frontend/src/pages/NotificationsPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-an-faq-page-with-an-faq-accordion-layout-containing-questions-answers-relevant-to-the-brand-shelf-life-storage-ingredients-no-preservatives-delivery-ordering-women-led-production-written-in-english-and-consistent-with-the-provided-brand-story",
+      "featureTitle": "Add an FAQ page with an FAQ accordion layout containing questions/answers relevant to the brand (shelf life, storage, ingredients/no preservatives, delivery/ordering, women-led production), written in English and consistent with the provided brand story.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/FaqPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-contact-page-or-prominent-contact-section-showing-contact-number-9785674345-location-mulund-east-and-fields-placeholders-for-email-id-and-instagram-handle-since-values-were-not-provided",
+      "featureTitle": "Add a Contact page (or prominent Contact section) showing: Contact number 9785674345, Location Mulund East, and fields/placeholders for Email ID and Instagram handle (since values were not provided).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/ContactPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-use-the-lijjat-papad-website-as-a-structural-reference-inspiration-sections-like-legacy-story-women-empowerment-quality-trust-product-catalog-faq-contact-without-copying-brand-names-or-copyrighted-text-ensure-this-website-includes-the-points-requested-in-this-prompt-in-a-cohesive-layout",
+      "featureTitle": "Use the Lijjat Papad website as a structural/reference inspiration (sections like legacy/story, women empowerment, quality/trust, product catalog, FAQ, contact) without copying brand names or copyrighted text; ensure this website includes the points requested in this prompt in a cohesive layout.",
+      "files": [
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-establish-a-cohesive-visual-theme-colors-typography-spacing-and-component-styling-appropriate-for-an-indian-homemade-food-brand-warm-appetizing-traditional-modern-blend-and-apply-it-consistently-across-all-pages-avoid-blue-purple-as-primary-colors",
+      "featureTitle": "Establish a cohesive visual theme (colors, typography, spacing, and component styling) appropriate for an Indian homemade food brand (warm, appetizing, traditional-modern blend) and apply it consistently across all pages; avoid blue/purple as primary colors.",
+      "files": [
+        "frontend/src/components/BottomNav.tsx",
+        "frontend/src/components/ProductCard.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-the-required-generated-product-images-as-static-assets-under-frontend-public-assets-generated-and-render-them-in-product-cards-images-must-be-realistic-and-unbranded-no-logos-or-brand-text-on-packaging",
+      "featureTitle": "Add the required generated product images as static assets under frontend/public/assets/generated and render them in product cards; images must be realistic and unbranded (no logos or brand text on packaging).",
+      "files": [
+        "frontend/src/components/ProductCard.tsx",
+        "frontend/src/data/products.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
