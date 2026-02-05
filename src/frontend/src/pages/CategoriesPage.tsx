@@ -26,6 +26,27 @@ export default function CategoriesPage() {
           </p>
           <ProductCarousel products={otherProducts} showQuantityControl={true} />
         </section>
+
+        {/* Scrolling Line - Darker Text */}
+        <div className="overflow-hidden bg-foreground/90 py-6 mb-12 rounded-lg">
+          <div className="animate-scroll-slow whitespace-nowrap">
+            <span className="inline-block text-2xl md:text-3xl font-bold text-background px-8">
+              Quantity can be customized
+            </span>
+            <span className="inline-block text-2xl md:text-3xl font-bold text-background px-8">
+              Quantity can be customized
+            </span>
+            <span className="inline-block text-2xl md:text-3xl font-bold text-background px-8">
+              Quantity can be customized
+            </span>
+            <span className="inline-block text-2xl md:text-3xl font-bold text-background px-8">
+              Quantity can be customized
+            </span>
+            <span className="inline-block text-2xl md:text-3xl font-bold text-background px-8">
+              Quantity can be customized
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   );

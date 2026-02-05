@@ -1,26 +1,65 @@
-import { Link } from '@tanstack/react-router';
-import { ArrowRight, Heart, Users, Award, Leaf } from 'lucide-react';
+import { Link, useNavigate } from '@tanstack/react-router';
+import { ArrowRight, Heart, Users, Award, Leaf, ShoppingCart } from 'lucide-react';
+import { useCart } from '../cart/CartProvider';
+import { theplas } from '../data/products';
 
 export default function HomePage() {
+  const { addItem } = useCart();
+  const navigate = useNavigate();
+
+  const handleBuyNow = () => {
+    // Add Methi Thepla (most popular) to cart
+    const defaultProduct = theplas.find((p) => p.id === 'methi-thepla');
+    if (defaultProduct) {
+      addItem(defaultProduct, 1);
+      navigate({ to: '/cart' });
+    }
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary/5 via-background to-accent/5 py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              Taste of Home, Made with Love
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8">
-              Authentic theplas crafted by skilled women, bringing tradition to your table
-            </p>
-            <Link
-              to="/categories"
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
-            >
-              Explore Products
-              <ArrowRight className="w-5 h-5" />
-            </Link>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+              {/* Hero Text */}
+              <div className="text-center md:text-left order-2 md:order-1">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+                  Taste of Home, Made with Love
+                </h1>
+                <p className="text-lg md:text-xl text-muted-foreground mb-8">
+                  Authentic theplas crafted by skilled women, bringing tradition to your table
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                  <button
+                    onClick={handleBuyNow}
+                    className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
+                  >
+                    <ShoppingCart className="w-5 h-5" />
+                    Buy Now
+                  </button>
+                  <Link
+                    to="/categories"
+                    className="inline-flex items-center justify-center gap-2 bg-secondary text-secondary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-secondary/90 transition-colors"
+                  >
+                    Explore Products
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Hero Image */}
+              <div className="order-1 md:order-2">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                  <img
+                    src="/assets/generated/hero-thepla.dim_1400x900.png"
+                    alt="Fresh homemade thepla"
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -57,8 +96,19 @@ export default function HomePage() {
       </section>
 
       {/* Griha Mahila Udyog Section */}
-      <section className="py-16 md:py-20 bg-accent/5">
-        <div className="container mx-auto px-4">
+      <section className="py-16 md:py-20 relative overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/assets/generated/women-udyog-meeting-bg.dim_1600x900.png"
+            alt="Women empowerment meeting"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-background/90 backdrop-blur-sm"></div>
+        </div>
+
+        {/* Content */}
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <Users className="w-12 h-12 text-primary mx-auto mb-4" />
@@ -83,21 +133,21 @@ export default function HomePage() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-card p-6 rounded-xl border border-border text-center">
+              <div className="bg-card/95 backdrop-blur-sm p-6 rounded-xl border border-border text-center shadow-lg">
                 <Heart className="w-10 h-10 text-primary mx-auto mb-3" />
                 <h3 className="font-semibold text-foreground mb-2">Made with Care</h3>
                 <p className="text-sm text-muted-foreground">
                   Every thepla is crafted with the same love and attention as a mother would give
                 </p>
               </div>
-              <div className="bg-card p-6 rounded-xl border border-border text-center">
+              <div className="bg-card/95 backdrop-blur-sm p-6 rounded-xl border border-border text-center shadow-lg">
                 <Award className="w-10 h-10 text-primary mx-auto mb-3" />
                 <h3 className="font-semibold text-foreground mb-2">Quality Assured</h3>
                 <p className="text-sm text-muted-foreground">
                   Traditional methods meet modern hygiene standards for the best results
                 </p>
               </div>
-              <div className="bg-card p-6 rounded-xl border border-border text-center">
+              <div className="bg-card/95 backdrop-blur-sm p-6 rounded-xl border border-border text-center shadow-lg">
                 <Leaf className="w-10 h-10 text-primary mx-auto mb-3" />
                 <h3 className="font-semibold text-foreground mb-2">Pure Ingredients</h3>
                 <p className="text-sm text-muted-foreground">

@@ -1,117 +1,238 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
-  "summary": "Build a marketing/e-commerce style website for a thepla brand with editable branding, brand story content, categorized product listings with sliders and realistic (unbranded) images, bottom navigation, FAQ, and contact details.",
+  "projectStateVersion": 15,
+  "summary": "Thepla brand marketing/e-commerce-style website within the existing ICP dapp scaffold, with editable branding (logo/name), richer storytelling sections, categorized product sliders with realistic images and ₹ pricing, Women Udyog content, and expanded navigation/contact pages.",
+  "architectural_notes": [
+    "Project structured as an ICP dapp with separate backend (Motoko canister) and frontend (React/Vite) plus generated Candid bindings.",
+    "Frontend stack: React + Vite + Tailwind CSS + shadcn/ui component set; reusable UI primitives live under build-template/src/frontend/src/components/ui.",
+    "Authentication uses Internet Identity via a dedicated hook and actor-creation hook for backend calls.",
+    "Static product catalog is currently sourced from frontend code (data/products.ts); cart state is client-side and persisted via a storage utility.",
+    "Build-template includes Docker/deploy scaffolding and scripts for generated image resizing/pruning.",
+    "\"Other Products\" customization marquee should be placed below the \"Other Products\" heading, with increased size, darker color, and slower scroll speed to ensure visibility in the draft.",
+    "\"Other Products\" customization marquee text color should remain white (do not change to grey); adjust visibility via placement/size/speed/contrast in other ways.",
+    "Branding (logo + brand name) should be editable/configurable via a single source of truth (config or CMS-like constants) rather than hardcoded into components."
+  ],
+  "known_issues": [
+    "The \"Other Products\" scrolling marquee text (\"Quantity can be customized\") was reported as not visible in the draft; likely styling/contrast/placement needs adjustment.",
+    "User requested the \"Other Products\" marquee text stay white (not grey); current draft/build may be changing it to grey.",
+    "Marquee requirement conflict: prior direction says \"Quantity can be customized\" marquee text must remain white; latest request asks for a darker moving line under Other products—needs clarification/alignment."
+  ],
+  "isFixRequest": false,
+  "generatedImages": [
+    {
+      "filename": "frontend/public/assets/generated/pickle-amla.dim_1024x1024.png",
+      "description": "Generated product image (pickle amla)",
+      "targetWidth": 1024,
+      "targetHeight": 1024
+    },
+    {
+      "filename": "frontend/public/assets/generated/pickle-carrot.dim_1024x1024.png",
+      "description": "Generated product image (pickle carrot)",
+      "targetWidth": 1024,
+      "targetHeight": 1024
+    },
+    {
+      "filename": "frontend/public/assets/generated/pickle-chilli.dim_1024x1024.png",
+      "description": "Generated product image (pickle chilli)",
+      "targetWidth": 1024,
+      "targetHeight": 1024
+    },
+    {
+      "filename": "frontend/public/assets/generated/pickle-chunda.dim_1024x1024.png",
+      "description": "Generated product image (pickle chunda)",
+      "targetWidth": 1024,
+      "targetHeight": 1024
+    },
+    {
+      "filename": "frontend/public/assets/generated/pickle-lime.dim_1024x1024.png",
+      "description": "Generated product image (pickle lime)",
+      "targetWidth": 1024,
+      "targetHeight": 1024
+    },
+    {
+      "filename": "frontend/public/assets/generated/pickle-mango.dim_1024x1024.png",
+      "description": "Generated product image (pickle mango)",
+      "targetWidth": 1024,
+      "targetHeight": 1024
+    },
+    {
+      "filename": "frontend/public/assets/generated/pickle-thecha.dim_1024x1024.png",
+      "description": "Generated product image (pickle thecha)",
+      "targetWidth": 1024,
+      "targetHeight": 1024
+    },
+    {
+      "filename": "frontend/public/assets/generated/thepla-bajra-wheat.dim_1024x1024.png",
+      "description": "Generated product image (thepla bajra wheat)",
+      "targetWidth": 1024,
+      "targetHeight": 1024
+    },
+    {
+      "filename": "frontend/public/assets/generated/thepla-dudhi.dim_1024x1024.png",
+      "description": "Generated product image (thepla dudhi)",
+      "targetWidth": 1024,
+      "targetHeight": 1024
+    },
+    {
+      "filename": "frontend/public/assets/generated/thepla-masala.dim_1024x1024.png",
+      "description": "Generated product image (thepla masala)",
+      "targetWidth": 1024,
+      "targetHeight": 1024
+    },
+    {
+      "filename": "frontend/public/assets/generated/thepla-methi.dim_1024x1024.png",
+      "description": "Generated product image (thepla methi)",
+      "targetWidth": 1024,
+      "targetHeight": 1024
+    },
+    {
+      "filename": "frontend/public/assets/generated/thepla-multigrain.dim_1024x1024.png",
+      "description": "Generated product image (thepla multigrain)",
+      "targetWidth": 1024,
+      "targetHeight": 1024
+    },
+    {
+      "filename": "frontend/public/assets/generated/thepla-nachani.dim_1024x1024.png",
+      "description": "Generated product image (thepla nachani)",
+      "targetWidth": 1024,
+      "targetHeight": 1024
+    },
+    {
+      "filename": "frontend/public/assets/generated/thepla-spinach.dim_1024x1024.png",
+      "description": "Generated product image (thepla spinach)",
+      "targetWidth": 1024,
+      "targetHeight": 1024
+    },
+    {
+      "filename": "frontend/public/assets/generated/thepla-til.dim_1024x1024.png",
+      "description": "Generated product image (thepla til)",
+      "targetWidth": 1024,
+      "targetHeight": 1024
+    }
+  ],
   "existing_features": [
     {
-      "id": "feature-create-a-responsive-multi-page-website-for-a-thepla-brand-with-a-clear-home-page-narrative-flow-and-dedicated-pages-sections-for-home-categories-cart-notifications-account-faq-and-contact",
-      "title": "Create a responsive multi-page website for a thepla brand with a clear home page narrative flow and dedicated pages/sections for Home, Categories, Cart, Notifications, Account, FAQ, and Contact.",
+      "id": "IF-1",
+      "title": "Motoko backend canister scaffold",
+      "synonyms": [
+        "backend canister",
+        "Motoko canister"
+      ],
+      "description": "Motoko backend canister with Candid interface and generated frontend declarations/wiring.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-2",
+      "title": "React + Vite frontend scaffold with Tailwind and shadcn/ui",
+      "synonyms": [
+        "frontend app scaffold",
+        "UI framework setup"
+      ],
+      "description": "Frontend created with React + Vite, Tailwind CSS, shadcn/ui component library, ESLint rules, and shared build-template tooling.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-3",
+      "title": "Product catalog data and UI (thepla & pickle)",
+      "synonyms": [
+        "catalog",
+        "products list"
+      ],
+      "description": "Static product dataset and UI components (cards/carousel) to browse products and categories.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-4",
+      "title": "Cart functionality with client-side persistence",
+      "synonyms": [
+        "shopping cart",
+        "CartProvider"
+      ],
+      "description": "Cart state management via CartProvider and storage client utilities, with Cart page UI.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-5",
+      "title": "Multi-page navigation and layout components",
+      "synonyms": [
+        "pages",
+        "routing/navigation"
+      ],
+      "description": "Pages implemented for Home, Categories, Cart, Account, Notifications, Contact, and FAQ, with Header and BottomNav components.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-6",
+      "title": "Internet Identity authentication wiring",
+      "synonyms": [
+        "II login",
+        "auth"
+      ],
+      "description": "Hooks and configuration to authenticate users via Internet Identity and create an authenticated actor for backend calls.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-7",
+      "title": "Build/deploy template for ICP project structure",
+      "synonyms": [
+        "build template",
+        "deploy scripts"
+      ],
+      "description": "Included build-template with Dockerfile, deploy.sh, icp.yaml, workspace/package configs, and image tooling scripts (resize/prune).",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-home-page-hero-section-the-section-containing-the-heading-taste-of-home-made-with-love-to-display-a-realistic-thepla-photo-near-the-hero-text-laid-out-responsively-for-mobile-and-desktop-e-g-text-image-side-by-side-on-desktop-stacked-on-mobile",
+      "title": "Update the Home page hero section (the section containing the heading \"Taste of Home, Made with Love\") to display a realistic thepla photo near the hero text, laid out responsively for mobile and desktop (e.g., text + image side-by-side on desktop, stacked on mobile).",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-add-an-editable-branding-header-area-that-leaves-space-for-the-user-to-set-replace-the-brand-name-and-logo-including-a-visible-placeholder-when-unset",
-      "title": "Add an editable branding header area that leaves space for the user to set/replace the brand name and logo (including a visible placeholder when unset).",
+      "id": "feature-add-a-buy-now-option-button-within-the-home-page-hero-section-that-when-clicked-adds-a-default-thepla-product-use-an-existing-product-from-frontend-src-data-products-ts-to-the-cart-and-navigates-the-user-to-the-cart-page",
+      "title": "Add a \"Buy Now\" option/button within the Home page hero section that, when clicked, adds a default thepla product (use an existing product from frontend/src/data/products.ts) to the cart and navigates the user to the Cart page.",
       "reqIds": [
         "REQ-2"
       ],
       "version": 1
     },
     {
-      "id": "feature-add-a-brand-story-section-on-the-home-page-using-the-provided-narrative-text-verbatim-with-appropriate-paragraph-formatting-and-make-it-visually-prominent",
-      "title": "Add a \"Brand Story\" section on the Home page using the provided narrative text (verbatim, with appropriate paragraph formatting) and make it visually prominent.",
+      "id": "feature-add-a-realistic-female-meeting-photo-as-a-background-visual-for-the-home-page-empowering-women-through-griha-mahila-udyog-section-griha-mahila-udyog-section-ensure-text-remains-readable-over-the-background-e-g-via-overlay-blur-or-opacity-treatment-and-the-section-remains-accessible",
+      "title": "Add a realistic \"female meeting\" photo as a background visual for the Home page \"Empowering Women Through Griha Mahila Udyog\" section (Griha Mahila Udyog section). Ensure text remains readable over the background (e.g., via overlay, blur, or opacity treatment) and the section remains accessible.",
       "reqIds": [
         "REQ-3"
       ],
       "version": 1
     },
     {
-      "id": "feature-add-a-separate-home-page-section-titled-in-english-that-explains-how-the-brand-supports-creates-griha-mahila-udyog-women-working-from-home-financial-independence-aligned-with-the-intent-of-the-user-s-request-and-consistent-with-the-story-tone",
-      "title": "Add a separate Home page section titled in English that explains how the brand supports/creates \"Griha Mahila Udyog\" (women working from home, financial independence), aligned with the intent of the user’s request and consistent with the story tone.",
+      "id": "feature-add-the-newly-generated-images-as-static-assets-under-frontend-public-assets-generated-and-reference-them-from-the-home-page-implementation",
+      "title": "Add the newly generated images as static assets under frontend/public/assets/generated and reference them from the Home page implementation.",
       "reqIds": [
         "REQ-4"
       ],
       "version": 1
     },
     {
-      "id": "feature-implement-a-categories-page-and-or-categories-section-that-displays-thepla-products-grouped-into-these-categories-with-per-category-slider-carousel-browsing-showing-product-name-pack-size-and-price-with-the-indian-rupee-symbol-long-duration-3-months-masala-thepla-40-piece-of-4-methi-thepla-45-50-piece-of-4-til-thepla-48-piece-of-4-short-duration-1-day-dudhi-thepla-60-piece-of-4-spinach-thepla-68-piece-of-4-diet-conscious-multigrain-thepla-165-piece-of-5-bajra-wheat-thepla-95-piece-of-5-nachani-thepla-128-piece-of-5",
-      "title": "Implement a Categories page (and/or Categories section) that displays thepla products grouped into these categories with per-category slider/carousel browsing, showing product name, pack size, and price with the Indian Rupee symbol (₹): Long Duration (3 Months): Masala Thepla ₹40 (Piece of 4), Methi Thepla ₹45–₹50 (Piece of 4), Til Thepla ₹48 (Piece of 4); Short Duration (1 Day): Dudhi Thepla ₹60 (Piece of 4), Spinach Thepla ₹68 (Piece of 4); Diet Conscious: Multigrain Thepla ₹165 (Piece of 5), Bajra + Wheat Thepla ₹95 (Piece of 5), Nachani Thepla ₹128 (Piece of 5).",
+      "id": "feature-update-the-product-catalog-so-the-methi-thepla-item-id-methi-thepla-has-a-fixed-price-of-45-rupees-not-a-min-max-range",
+      "title": "Update the product catalog so the \"Methi Thepla\" item (id: \"methi-thepla\") has a fixed price of 45 rupees (not a min/max range).",
       "reqIds": [
         "REQ-5"
       ],
       "version": 1
     },
     {
-      "id": "feature-add-an-other-products-section-with-a-slider-carousel-showing-items-with-realistic-unbranded-images-and-pricing-where-provided-include-at-minimum-lime-95-500g-mango-110-500g-and-also-list-chilli-500g-awla-500g-carrot-500g-chunda-500g-thecha-500g-quantity-must-be-user-customizable-per-item-e-g-selectable-enterable-quantity-and-or-weight-without-requiring-backend",
-      "title": "Add an \"Other Products\" section with a slider/carousel showing items with realistic unbranded images and ₹ pricing where provided. Include at minimum: Lime ₹95 (500g), Mango ₹110 (500g), and also list: Chilli (500g), Awla (500g), Carrot (500g), Chunda (500g), Thecha (500g). Quantity must be user-customizable per item (e.g., selectable/enterable quantity and/or weight), without requiring backend.",
+      "id": "feature-update-the-scrolling-marquee-line-on-the-products-categories-page-the-line-that-repeats-quantity-can-be-customized-under-the-other-products-section-so-the-marquee-text-color-remains-white-and-is-not-changed-to-grey-in-any-theme-state",
+      "title": "Update the scrolling marquee line on the Products/Categories page (the line that repeats “Quantity can be customized” under the “Other Products” section) so the marquee text color remains white and is not changed to grey in any theme/state.",
       "reqIds": [
         "REQ-6"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-implement-basic-cart-functionality-users-can-add-items-from-any-slider-to-a-cart-page-adjust-quantities-and-remove-items-cart-should-compute-line-totals-and-a-grand-total-using-and-persist-locally-in-the-browser",
-      "title": "Implement basic cart functionality: users can add items from any slider to a Cart page, adjust quantities, and remove items. Cart should compute line totals and a grand total using ₹ and persist locally in the browser.",
-      "reqIds": [
-        "REQ-7"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-a-bottom-navigation-bar-visible-on-mobile-and-optionally-desktop-containing-home-categories-cart-notification-account-each-item-must-navigate-to-its-respective-page-route",
-      "title": "Add a bottom navigation bar visible on mobile (and optionally desktop) containing: Home, Categories, Cart, Notification, Account; each item must navigate to its respective page/route.",
-      "reqIds": [
-        "REQ-8"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-create-notifications-and-account-pages-as-simple-placeholders-consistent-with-the-site-theme-no-authentication-required-so-navigation-destinations-are-complete-and-not-broken",
-      "title": "Create Notifications and Account pages as simple placeholders consistent with the site theme (no authentication required), so navigation destinations are complete and not broken.",
-      "reqIds": [
-        "REQ-9"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-an-faq-page-with-an-faq-accordion-layout-containing-questions-answers-relevant-to-the-brand-shelf-life-storage-ingredients-no-preservatives-delivery-ordering-women-led-production-written-in-english-and-consistent-with-the-provided-brand-story",
-      "title": "Add an FAQ page with an FAQ accordion layout containing questions/answers relevant to the brand (shelf life, storage, ingredients/no preservatives, delivery/ordering, women-led production), written in English and consistent with the provided brand story.",
-      "reqIds": [
-        "REQ-10"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-a-contact-page-or-prominent-contact-section-showing-contact-number-9785674345-location-mulund-east-and-fields-placeholders-for-email-id-and-instagram-handle-since-values-were-not-provided",
-      "title": "Add a Contact page (or prominent Contact section) showing: Contact number 9785674345, Location Mulund East, and fields/placeholders for Email ID and Instagram handle (since values were not provided).",
-      "reqIds": [
-        "REQ-11"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-use-the-lijjat-papad-website-as-a-structural-reference-inspiration-sections-like-legacy-story-women-empowerment-quality-trust-product-catalog-faq-contact-without-copying-brand-names-or-copyrighted-text-ensure-this-website-includes-the-points-requested-in-this-prompt-in-a-cohesive-layout",
-      "title": "Use the Lijjat Papad website as a structural/reference inspiration (sections like legacy/story, women empowerment, quality/trust, product catalog, FAQ, contact) without copying brand names or copyrighted text; ensure this website includes the points requested in this prompt in a cohesive layout.",
-      "reqIds": [
-        "REQ-12"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-establish-a-cohesive-visual-theme-colors-typography-spacing-and-component-styling-appropriate-for-an-indian-homemade-food-brand-warm-appetizing-traditional-modern-blend-and-apply-it-consistently-across-all-pages-avoid-blue-purple-as-primary-colors",
-      "title": "Establish a cohesive visual theme (colors, typography, spacing, and component styling) appropriate for an Indian homemade food brand (warm, appetizing, traditional-modern blend) and apply it consistently across all pages; avoid blue/purple as primary colors.",
-      "reqIds": [
-        "REQ-13"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-the-required-generated-product-images-as-static-assets-under-frontend-public-assets-generated-and-render-them-in-product-cards-images-must-be-realistic-and-unbranded-no-logos-or-brand-text-on-packaging",
-      "title": "Add the required generated product images as static assets under frontend/public/assets/generated and render them in product cards; images must be realistic and unbranded (no logos or brand text on packaging).",
-      "reqIds": [
-        "REQ-14"
       ],
       "version": 1
     }
@@ -119,162 +240,73 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Create website layout with editable logo and brand name placeholder areas",
+      "summary": "Add a realistic thepla image near the \"Taste of home made with love\" section and include a \"Buy Now\" option/button in that area.",
       "reqIds": [],
       "status": "pending"
     },
     {
       "id": "AR-2",
-      "summary": "Add Brand Story section using provided narrative content",
+      "summary": "Add a realistic female meeting image as a background visual for the \"Women Udyog\" section/page.",
       "reqIds": [],
       "status": "pending"
     },
     {
       "id": "AR-3",
-      "summary": "Add categorized thepla products (Long Duration/Short Duration/Diet Conscious) with ₹ pricing, pack-size labels, and per-category product slider views",
+      "summary": "Add a subtle moving line/marquee in the \"Other Products\" section stating that quantity can be customized.",
       "reqIds": [],
       "status": "pending"
     },
     {
       "id": "AR-4",
-      "summary": "Add 'Other products' section with slider, realistic unbranded images, ₹ pricing, and customizable quantity (e.g., 500g)",
+      "summary": "Update the Methi Thepla product price to 45 rupees in the product catalog data.",
       "reqIds": [],
       "status": "pending"
     },
     {
       "id": "AR-5",
-      "summary": "Add an additional story section about the brand’s Griha Mahila Udyog initiative",
+      "summary": "Add editable branding placeholders: space to edit logo and brand name across the site (e.g., header/hero).",
       "reqIds": [],
       "status": "pending"
     },
     {
       "id": "AR-6",
-      "summary": "Add bottom navigation menu: Home, Categories, Cart, Notification, Account",
+      "summary": "Add/adjust product catalog to match provided categories (Long Duration/Short Duration/Diet Conscious + Other products) with ₹ prices, pack-size text, and realistic product images (no brand text in images).",
       "reqIds": [],
       "status": "pending"
     },
     {
       "id": "AR-7",
-      "summary": "Add FAQ page",
+      "summary": "Display each product category in a slider/carousel format for browsing (including an \"Other products\" slider).",
       "reqIds": [],
       "status": "pending"
     },
     {
       "id": "AR-8",
-      "summary": "Add Contact details section/page including phone (9785674345), location (Mulund East), email field, and Instagram handle field",
+      "summary": "Add long-form brand story section using the provided narrative and add a Women/Griha Mahila Udyog story section explaining the initiative.",
       "reqIds": [],
       "status": "pending"
     },
     {
       "id": "AR-9",
-      "summary": "Use Lijjat Papad website as reference for structure/content points to include",
+      "summary": "Add/confirm bottom navigation links: Home, Categories, Cart, Notification, Account; plus add/ensure FAQ page and Contact details section/page (phone, location, email, Instagram).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Add realistic images in the hero/starting section and in the Women Udyog section background/visuals (ensure readability/accessibility).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Add a moving line/marquee below \"Other products\" stating quantity is customizable, with darker text styling as requested.",
       "reqIds": [],
       "status": "pending"
     }
   ],
-  "architectural_notes": [
-    "Product images should be realistic stock-style photos with no brand/logo visible.",
-    "Brand name and logo should be editable (e.g., via config/CMS fields or clearly marked placeholders).",
-    "Use Indian Rupee symbol (₹) consistently in pricing display.",
-    "Product listings should support slider/carousel UI per category/section."
-  ],
-  "known_issues": [],
-  "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Realistic unbranded photo of masala thepla stacked on a plate (thepla-masala.dim_1024x1024.png)\n- Realistic unbranded photo of methi thepla stacked on a plate (thepla-methi.dim_1024x1024.png)\n- Realistic unbranded photo of til (sesame) thepla on a plate (thepla-til.dim_1024x1024.png)\n- Realistic unbranded photo of dudhi (bottle gourd) thepla on a plate (thepla-dudhi.dim_1024x1024.png)\n- Realistic unbranded photo of spinach thepla on a plate (thepla-spinach.dim_1024x1024.png)\n- Realistic unbranded photo of multigrain thepla on a plate (thepla-multigrain.dim_1024x1024.png)\n- Realistic unbranded photo of bajra + wheat thepla on a plate (thepla-bajra-wheat.dim_1024x1024.png)\n- Realistic unbranded photo of nachani (ragi) thepla on a plate (thepla-nachani.dim_1024x1024.png)\n- Realistic unbranded photo of lime pickle in a plain glass jar (pickle-lime.dim_1024x1024.png)\n- Realistic unbranded photo of mango pickle in a plain glass jar (pickle-mango.dim_1024x1024.png)\n- Realistic unbranded photo of red chilli pickle in a plain glass jar (pickle-chilli.dim_1024x1024.png)\n- Realistic unbranded photo of amla (awla) pickle in a plain glass jar (pickle-amla.dim_1024x1024.png)\n- Realistic unbranded photo of carrot pickle in a plain glass jar (pickle-carrot.dim_1024x1024.png)\n- Realistic unbranded photo of chunda (sweet mango relish) in a plain glass jar (pickle-chunda.dim_1024x1024.png)\n- Realistic unbranded photo of thecha (chilli-garlic chutney) in a plain glass jar (pickle-thecha.dim_1024x1024.png)",
-  "generatedImages": [
-    {
-      "filename": "thepla-masala.dim_1024x1024.png",
-      "description": "Realistic unbranded photo of masala thepla stacked on a plate",
-      "targetWidth": 1024,
-      "targetHeight": 1024
-    },
-    {
-      "filename": "thepla-methi.dim_1024x1024.png",
-      "description": "Realistic unbranded photo of methi thepla stacked on a plate",
-      "targetWidth": 1024,
-      "targetHeight": 1024
-    },
-    {
-      "filename": "thepla-til.dim_1024x1024.png",
-      "description": "Realistic unbranded photo of til (sesame) thepla on a plate",
-      "targetWidth": 1024,
-      "targetHeight": 1024
-    },
-    {
-      "filename": "thepla-dudhi.dim_1024x1024.png",
-      "description": "Realistic unbranded photo of dudhi (bottle gourd) thepla on a plate",
-      "targetWidth": 1024,
-      "targetHeight": 1024
-    },
-    {
-      "filename": "thepla-spinach.dim_1024x1024.png",
-      "description": "Realistic unbranded photo of spinach thepla on a plate",
-      "targetWidth": 1024,
-      "targetHeight": 1024
-    },
-    {
-      "filename": "thepla-multigrain.dim_1024x1024.png",
-      "description": "Realistic unbranded photo of multigrain thepla on a plate",
-      "targetWidth": 1024,
-      "targetHeight": 1024
-    },
-    {
-      "filename": "thepla-bajra-wheat.dim_1024x1024.png",
-      "description": "Realistic unbranded photo of bajra + wheat thepla on a plate",
-      "targetWidth": 1024,
-      "targetHeight": 1024
-    },
-    {
-      "filename": "thepla-nachani.dim_1024x1024.png",
-      "description": "Realistic unbranded photo of nachani (ragi) thepla on a plate",
-      "targetWidth": 1024,
-      "targetHeight": 1024
-    },
-    {
-      "filename": "pickle-lime.dim_1024x1024.png",
-      "description": "Realistic unbranded photo of lime pickle in a plain glass jar",
-      "targetWidth": 1024,
-      "targetHeight": 1024
-    },
-    {
-      "filename": "pickle-mango.dim_1024x1024.png",
-      "description": "Realistic unbranded photo of mango pickle in a plain glass jar",
-      "targetWidth": 1024,
-      "targetHeight": 1024
-    },
-    {
-      "filename": "pickle-chilli.dim_1024x1024.png",
-      "description": "Realistic unbranded photo of red chilli pickle in a plain glass jar",
-      "targetWidth": 1024,
-      "targetHeight": 1024
-    },
-    {
-      "filename": "pickle-amla.dim_1024x1024.png",
-      "description": "Realistic unbranded photo of amla (awla) pickle in a plain glass jar",
-      "targetWidth": 1024,
-      "targetHeight": 1024
-    },
-    {
-      "filename": "pickle-carrot.dim_1024x1024.png",
-      "description": "Realistic unbranded photo of carrot pickle in a plain glass jar",
-      "targetWidth": 1024,
-      "targetHeight": 1024
-    },
-    {
-      "filename": "pickle-chunda.dim_1024x1024.png",
-      "description": "Realistic unbranded photo of chunda (sweet mango relish) in a plain glass jar",
-      "targetWidth": 1024,
-      "targetHeight": 1024
-    },
-    {
-      "filename": "pickle-thecha.dim_1024x1024.png",
-      "description": "Realistic unbranded photo of thecha (chilli-garlic chutney) in a plain glass jar",
-      "targetWidth": 1024,
-      "targetHeight": 1024
-    }
-  ],
   "gameProjectType": "none",
-  "projectName": "Thepla brand marketing + catalog website with brand story, product category sliders, cart, and contact/FAQ pages",
+  "projectName": "Add hero thepla image + Buy Now CTA and Women Udyog background photo",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

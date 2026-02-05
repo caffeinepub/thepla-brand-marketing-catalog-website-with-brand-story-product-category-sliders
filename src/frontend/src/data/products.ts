@@ -1,7 +1,7 @@
 export interface Product {
   id: string;
   name: string;
-  price: number | { min: number; max: number };
+  price: number;
   packSize: string;
   image: string;
   category: string;
@@ -20,7 +20,7 @@ export const theplas: Product[] = [
   {
     id: 'methi-thepla',
     name: 'Methi Thepla',
-    price: { min: 45, max: 50 },
+    price: 45,
     packSize: 'Piece of 4',
     image: '/assets/generated/thepla-methi.dim_1024x1024.png',
     category: 'Long Duration (3 Months)',
@@ -97,7 +97,7 @@ export const otherProducts: Product[] = [
   {
     id: 'chilli-pickle',
     name: 'Chilli Pickle',
-    price: 0,
+    price: 95,
     packSize: '500g',
     image: '/assets/generated/pickle-chilli.dim_1024x1024.png',
     category: 'Other Products',
@@ -105,7 +105,7 @@ export const otherProducts: Product[] = [
   {
     id: 'amla-pickle',
     name: 'Amla Pickle',
-    price: 0,
+    price: 95,
     packSize: '500g',
     image: '/assets/generated/pickle-amla.dim_1024x1024.png',
     category: 'Other Products',
@@ -113,7 +113,7 @@ export const otherProducts: Product[] = [
   {
     id: 'carrot-pickle',
     name: 'Carrot Pickle',
-    price: 0,
+    price: 95,
     packSize: '500g',
     image: '/assets/generated/pickle-carrot.dim_1024x1024.png',
     category: 'Other Products',
@@ -121,7 +121,7 @@ export const otherProducts: Product[] = [
   {
     id: 'chunda-pickle',
     name: 'Chunda',
-    price: 0,
+    price: 95,
     packSize: '500g',
     image: '/assets/generated/pickle-chunda.dim_1024x1024.png',
     category: 'Other Products',
@@ -129,7 +129,7 @@ export const otherProducts: Product[] = [
   {
     id: 'thecha',
     name: 'Thecha',
-    price: 0,
+    price: 95,
     packSize: '500g',
     image: '/assets/generated/pickle-thecha.dim_1024x1024.png',
     category: 'Other Products',
