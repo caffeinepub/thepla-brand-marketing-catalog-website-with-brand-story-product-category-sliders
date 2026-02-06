@@ -1,35 +1,21 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Improve homepage and header text contrast across light/dark modes",
+  "title": "Home page boxed content text color adjustments (light/dark mode)",
   "requirements": [
     {
-      "id": "REQ-1",
-      "summary": "Ensure the Home page value proposition headings have strong, mode-safe contrast against their card backgrounds.",
+      "id": "REQ-3",
+      "summary": "Ensure text inside the Home page’s primary boxed/card content areas renders black in light mode while staying readable in dark mode.",
       "acceptanceCriteria": [
-        "On the Home page, the headings \"Made with Care\", \"Quality Assured\", and \"Pure Ingredients\" are visibly readable (no low-contrast/washed-out appearance) in light mode.",
-        "On the Home page, the headings \"Made with Care\", \"Quality Assured\", and \"Pure Ingredients\" are visibly readable (no low-contrast/washed-out appearance) in dark mode."
+        "On the Home page, the text within the primary boxed content area(s) (card-like container with border/rounded corners) is black when the site is in light mode.",
+        "In dark mode, the same text remains readable against the dark card background (do not force pure black in dark mode).",
+        "No other pages/components have their text colors unintentionally changed."
       ],
       "file_operations": [
         {
           "path": "frontend/src/pages/HomePage.tsx",
           "operation": "modify",
-          "description": "Update the value proposition card heading styles (the three h3 elements) to use theme tokens intended for text on card backgrounds (e.g., card-foreground/foreground without opacity) so the headings maintain strong contrast in both light and dark modes."
-        }
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "summary": "Remove hardcoded header brand-name color and use theme-aware styling that preserves contrast in light/dark modes.",
-      "acceptanceCriteria": [
-        "In the sticky header, the brand name text (e.g., \"BAU SARAS\") is clearly readable in light mode.",
-        "In the sticky header, the brand name text (e.g., \"BAU SARAS\") is clearly readable in dark mode."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/Header.tsx",
-          "operation": "modify",
-          "description": "Replace the hardcoded brand name text color with theme-based classes (foreground/card-foreground/primary as appropriate) so \"BAU SARAS\" remains high-contrast on the header background in both light and dark modes."
+          "description": "Update Tailwind text color classes within the Home page’s card-like boxed sections (e.g., the story card, empowerment card, and the smaller feature cards) to use black text in light mode (e.g., text-black / text-black with opacity for secondary text) while using appropriate dark-mode overrides (e.g., dark:text-card-foreground and dark:text-muted-foreground) to maintain readability without forcing pure black in dark mode."
         }
       ]
     }

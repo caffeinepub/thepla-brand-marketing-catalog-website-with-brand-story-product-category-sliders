@@ -1,14 +1,22 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-06T11:00:41.736Z",
-  "summary": "The diff appears to address both requested contrast improvements by using theme-aware Tailwind text tokens (e.g., `text-foreground` / `card-foreground`) for the header brand name and the homepage value-prop headings, which should maintain contrast in both light and dark modes.",
-  "missing_requirements": [],
+  "generatedAt": "2026-02-06T11:07:31.243Z",
+  "summary": "REQ-3 is partially evidenced as implemented: HomePage boxed card content in the \"Our Story\" section is set to black in light mode with a dark-mode override. However, due to truncation, it’s not verifiable from the diff summary that *all* primary boxed content areas on the Home page were updated, nor that no other HomePage boxed areas remain unaffected.",
+  "missing_requirements": [
+    {
+      "id": "REQ-3",
+      "requirement": "Update the Home page so the text inside the main content box section(s) renders in black (in light mode) while remaining readable in dark mode.",
+      "reason": "The diff snippet only clearly shows one boxed section (\"Our Story\") updated with `text-black dark:text-card-foreground`. Because the HomePage diff is truncated, there isn’t sufficient evidence that all main boxed content sections/cards on the Home page received the same treatment (as required by “section(s)” and the AC).",
+      "evidence": [
+        "frontend/src/pages/HomePage.tsx (truncated)"
+      ]
+    }
+  ],
   "hallucinated_features": [],
-  "confidence": 0.62,
+  "confidence": 0.6,
   "changed_files": [
     "frontend-file-summaries.txt",
-    "frontend/src/components/Header.tsx",
     "frontend/src/pages/HomePage.tsx",
     "project_state.json"
   ]

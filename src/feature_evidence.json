@@ -2,8 +2,8 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-text-color-styling-so-the-homepage-value-proposition-headings-made-with-care-quality-assured-and-pure-ingredients-remain-clearly-readable-with-strong-contrast-against-their-card-backgrounds-in-both-light-mode-and-dark-mode",
-      "featureTitle": "Update the text color styling so the homepage value proposition headings \"Made with Care\", \"Quality Assured\", and \"Pure Ingredients\" remain clearly readable with strong contrast against their card backgrounds in both light mode and dark mode.",
+      "featureId": "feature-update-the-home-page-so-the-text-inside-the-main-content-box-section-s-renders-in-black-in-light-mode-while-remaining-readable-in-dark-mode",
+      "featureTitle": "Update the Home page so the text inside the main content box section(s) renders in black (in light mode) while remaining readable in dark mode.",
       "files": [
         "frontend/src/pages/HomePage.tsx"
       ],
@@ -15,25 +15,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-1"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-update-the-header-brand-name-text-styling-so-the-brand-name-bau-saras-remains-clearly-readable-with-strong-contrast-against-the-header-background-in-both-light-mode-and-dark-mode-avoid-a-hardcoded-color-that-becomes-low-contrast",
-      "featureTitle": "Update the header brand name text styling so the brand name \"BAU SARAS\" remains clearly readable with strong contrast against the header background in both light mode and dark mode (avoid a hardcoded color that becomes low-contrast).",
-      "files": [
-        "frontend/src/components/Header.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-2"
+        "REQ-3"
       ],
       "confidence": "high"
     }

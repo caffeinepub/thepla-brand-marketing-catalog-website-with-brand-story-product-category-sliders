@@ -1,50 +1,34 @@
 {
   "kind": "build_request",
-  "title": "Improve text contrast for homepage value props and brand name",
+  "title": "Make homepage box text black",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-1",
-      "text": "Update the text color styling so the homepage value proposition headings \"Made with Care\", \"Quality Assured\", and \"Pure Ingredients\" remain clearly readable with strong contrast against their card backgrounds in both light mode and dark mode.",
+      "id": "REQ-3",
+      "text": "Update the Home page so the text inside the main content box section(s) renders in black (in light mode) while remaining readable in dark mode.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "recent-messages"
         ],
         "quotes": [
-          "make the font colour visible in made with care Quality Assured pure ingredients and brand BAU SARAS"
+          "make the text in box black at home page"
         ]
       },
       "acceptanceCriteria": [
-        "On the Home page, the headings \"Made with Care\", \"Quality Assured\", and \"Pure Ingredients\" are visibly readable (no low-contrast/washed-out appearance) in light mode.",
-        "On the Home page, the headings \"Made with Care\", \"Quality Assured\", and \"Pure Ingredients\" are visibly readable (no low-contrast/washed-out appearance) in dark mode."
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "text": "Update the header brand name text styling so the brand name \"BAU SARAS\" remains clearly readable with strong contrast against the header background in both light mode and dark mode (avoid a hardcoded color that becomes low-contrast).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "recent-messages"
-        ],
-        "quotes": [
-          "make the font colour visible in made with care Quality Assured pure ingredients and brand BAU SARAS"
-        ]
-      },
-      "acceptanceCriteria": [
-        "In the sticky header, the brand name text (e.g., \"BAU SARAS\") is clearly readable in light mode.",
-        "In the sticky header, the brand name text (e.g., \"BAU SARAS\") is clearly readable in dark mode."
+        "On the Home page, the text within the primary boxed content area(s) (card-like container with border/rounded corners) is black when the site is in light mode.",
+        "In dark mode, the same text remains readable against the dark card background (do not force pure black in dark mode).",
+        "No other pages/components have their text colors unintentionally changed."
       ]
     }
   ],
   "constraints": [
     "Do not edit files under frontend/src/components/ui (read-only).",
-    "Do not modify the Internet Identity hooks in frontend/src/hooks (read-only paths in system context)."
+    "Do not modify immutable hook/bootstrap files listed in SYSTEM_CONTEXT (e.g., frontend/src/main.tsx, frontend/src/hooks/useActor.ts, frontend/src/hooks/useInternetIdentity.ts)."
   ],
   "nonGoals": [
-    "No changes to product data, cart behavior, or navigation.",
-    "No changes to logo upload behavior or brand-name editing behavior beyond text color/styling."
+    "Redesigning the Home page layout or typography beyond the requested text color change.",
+    "Changing global Tailwind theme tokens in a way that affects the entire app."
   ],
   "imageRequirements": {
     "required": [],

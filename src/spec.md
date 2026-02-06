@@ -1,10 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Ensure key homepage value-prop headings and the header brand name “BAU SARAS” have strong, consistent text contrast in both light and dark modes.
+**Goal:** Make the text inside the main boxed content area(s) on the Home page render black in light mode while staying readable in dark mode.
 
 **Planned changes:**
-- Adjust text color styling for the Home page value proposition headings (“Made with Care”, “Quality Assured”, “Pure Ingredients”) so they remain clearly readable against their card backgrounds in light mode and dark mode.
-- Adjust header brand name (“BAU SARAS”) text styling to maintain clear contrast against the header background in light mode and dark mode, avoiding a hardcoded color that becomes low-contrast.
+- Update the Home page boxed/card content text styling to use a light-mode black text color and an appropriate dark-mode text color for contrast.
+- Scope the styling change to the Home page boxed content area(s) only to avoid unintended text color changes elsewhere.
 
-**User-visible outcome:** On the Home page and in the sticky header, these headings and the “BAU SARAS” brand text remain clearly readable with good contrast in both light and dark themes.
+**User-visible outcome:** On the Home page, text inside the primary bordered/rounded content box section(s) appears black in light mode and remains clearly readable in dark mode, with no noticeable text color changes on other pages.

@@ -7,18 +7,10 @@
   "isFixRequest": true,
   "existing_features": [
     {
-      "id": "feature-update-the-text-color-styling-so-the-homepage-value-proposition-headings-made-with-care-quality-assured-and-pure-ingredients-remain-clearly-readable-with-strong-contrast-against-their-card-backgrounds-in-both-light-mode-and-dark-mode",
-      "title": "Update the text color styling so the homepage value proposition headings \"Made with Care\", \"Quality Assured\", and \"Pure Ingredients\" remain clearly readable with strong contrast against their card backgrounds in both light mode and dark mode.",
+      "id": "feature-update-the-home-page-so-the-text-inside-the-main-content-box-section-s-renders-in-black-in-light-mode-while-remaining-readable-in-dark-mode",
+      "title": "Update the Home page so the text inside the main content box section(s) renders in black (in light mode) while remaining readable in dark mode.",
       "reqIds": [
-        "REQ-1"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-update-the-header-brand-name-text-styling-so-the-brand-name-bau-saras-remains-clearly-readable-with-strong-contrast-against-the-header-background-in-both-light-mode-and-dark-mode-avoid-a-hardcoded-color-that-becomes-low-contrast",
-      "title": "Update the header brand name text styling so the brand name \"BAU SARAS\" remains clearly readable with strong contrast against the header background in both light mode and dark mode (avoid a hardcoded color that becomes low-contrast).",
-      "reqIds": [
-        "REQ-2"
+        "REQ-3"
       ],
       "version": 1
     }
@@ -26,12 +18,12 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Adjust font color to improve visibility for 'made with care', 'Quality Assured', 'pure ingredients', and brand text 'BAU SARAS'",
+      "summary": "Change the homepage box text color to black",
       "reqIds": [],
       "status": "pending"
     }
   ],
-  "projectName": "Improve text contrast for homepage value props and brand name",
+  "projectName": "Make homepage box text black",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }
