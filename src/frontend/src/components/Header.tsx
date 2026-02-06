@@ -1,21 +1,26 @@
-import { Link, useNavigate } from '@tanstack/react-router';
-import { useBrand } from './BrandProvider';
+import { Link } from '@tanstack/react-router';
+import { useBrand, DEFAULT_LOGO_URL } from './BrandProvider';
 import { Menu, X, Edit2, Upload } from 'lucide-react';
 import { useState, useRef } from 'react';
 
 export default function Header() {
-  const { brandName, logoUrl, setBrandName, setLogoUrl } = useBrand();
+  const { brandName, logoUrl, effectiveLogoUrl, setBrandName, setLogoUrl } = useBrand();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isEditingName, setIsEditingName] = useState(false);
   const [tempName, setTempName] = useState(brandName);
+  const [imageError, setImageError] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const navigate = useNavigate();
 
   const handleLogoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      const url = URL.createObjectURL(file);
-      setLogoUrl(url);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const dataUrl = reader.result as string;
+        setLogoUrl(dataUrl);
+        setImageError(false);
+      };
+      reader.readAsDataURL(file);
     }
   };
 
@@ -26,25 +31,43 @@ export default function Header() {
     setIsEditingName(false);
   };
 
+  const handleImageError = () => {
+    // If the current logo fails to load and it's a custom upload, fall back to default
+    if (logoUrl) {
+      setImageError(true);
+      setLogoUrl(null);
+    }
+  };
+
+  const displayLogoUrl = imageError ? DEFAULT_LOGO_URL : effectiveLogoUrl;
+
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 border-b border-border">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo and Brand Name */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div 
-              className="relative w-12 h-12 rounded-lg overflow-hidden bg-primary/10 flex items-center justify-center cursor-pointer hover:bg-primary/20 transition-colors"
+            <button
+              type="button"
+              className="relative w-12 h-12 rounded-lg overflow-hidden bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
               onClick={(e) => {
                 e.preventDefault();
                 fileInputRef.current?.click();
               }}
+              aria-label="Upload logo"
             >
-              {logoUrl ? (
-                <img src={logoUrl} alt="Logo" className="w-full h-full object-cover" />
-              ) : (
-                <Upload className="w-5 h-5 text-primary" />
+              <img 
+                src={displayLogoUrl} 
+                alt="Brand Logo" 
+                className="w-full h-full object-cover" 
+                onError={handleImageError}
+              />
+              {!logoUrl && (
+                <div className="absolute inset-0 flex items-center justify-center bg-primary/10 opacity-0 hover:opacity-100 transition-opacity">
+                  <Upload className="w-5 h-5 text-primary" />
+                </div>
               )}
-            </div>
+            </button>
             <input
               ref={fileInputRef}
               type="file"
@@ -73,7 +96,7 @@ export default function Header() {
               </div>
             ) : (
               <div className="flex items-center gap-2">
-                <h1 className="text-xl font-bold text-foreground">{brandName}</h1>
+                <h1 className="text-xl font-bold text-[#5D4037]">{brandName}</h1>
                 <button
                   onClick={(e) => {
                     e.preventDefault();

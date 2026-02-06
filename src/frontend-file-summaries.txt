@@ -1,19 +1,20 @@
 {
   "frontend/src/App.tsx": "Main application component with TanStack Router setup, defining all routes (Home, Categories, Cart, Notifications, Account, FAQ, Contact) and wrapping the app with BrandProvider and CartProvider for global state management.",
-  "frontend/src/components/BrandProvider.tsx": "Context provider for managing editable brand name and logo URL with localStorage persistence across sessions.",
-  "frontend/src/components/Header.tsx": "Sticky header component with editable brand name/logo, desktop navigation menu, and mobile hamburger menu with responsive design.",
+  "frontend/src/components/BrandProvider.tsx": "Context provider managing editable brand name (default \"Bao Saras\") and logo URL with localStorage persistence, plus an effectiveLogoUrl that falls back to the default Bao Saras logo when no custom logo is uploaded; DEFAULT_LOGO_URL is now exported for use in other components.",
+  "frontend/src/components/Header.tsx": "Sticky header component with clickable logo upload button (using data URL for persistence), editable brand name displayed in dark brown color (#5D4037), desktop navigation menu, mobile hamburger menu with responsive design, and image error handling that falls back to the default Bao Saras logo if a custom upload fails to load.",
   "frontend/src/components/BottomNav.tsx": "Fixed bottom navigation bar for mobile with Home, Categories, Cart (with badge count), Notifications, and Account links with active state indication.",
   "frontend/src/cart/CartProvider.tsx": "Context provider managing shopping cart state with add/remove/update operations, line total calculations, and localStorage persistence.",
-  "frontend/src/data/products.ts": "Product data definitions for all thepla varieties (categorized by Long Duration, Short Duration, Diet Conscious) and other products (pickles) with prices, pack sizes, and image paths; Methi Thepla now has a fixed price of 45 rupees instead of a range.",
+  "frontend/src/data/products.ts": "Product data definitions for all thepla varieties with \"Diet Conscious\" category renamed to \"Nutrition Based\" and other products (pickles) with prices, pack sizes, and image paths.",
   "frontend/src/components/ProductCard.tsx": "Reusable product card component displaying product image, name, pack size, price (including range support for Methi Thepla), optional quantity controls, and add-to-cart functionality.",
   "frontend/src/components/ProductCarousel.tsx": "Horizontal scrollable carousel component with left/right navigation buttons for browsing products in each category.",
-  "frontend/src/pages/HomePage.tsx": "Home page featuring a responsive hero section with thepla image and Buy Now button that adds Methi Thepla to cart, complete brand story, Griha Mahila Udyog section with background image overlay and black paragraph text, CTA section, and footer with caffeine.ai attribution.",
-  "frontend/src/pages/CategoriesPage.tsx": "Products page displaying all thepla categories with carousels and an \"Other Products\" section with quantity controls for pickles.",
+  "frontend/src/pages/HomePage.tsx": "Home page featuring hero section, brand story in rounded container with Obra Letra font at 12px, women empowerment section with stronger background blur/overlay and black text in rounded container with Obra Letra font at 12px, CTA section, and footer.",
+  "frontend/src/pages/CategoriesPage.tsx": "Products page displaying all thepla categories (including \"Nutrition Based\") with carousels and an \"Other Products\" section with quantity controls for pickles.",
   "frontend/src/pages/CartPage.tsx": "Shopping cart page showing cart items with quantity controls, remove buttons, line totals, order summary sidebar, and empty cart state.",
   "frontend/src/pages/NotificationsPage.tsx": "Notifications page with sample notification cards showing product updates, offers, and delivery information.",
   "frontend/src/pages/AccountPage.tsx": "Account page with user profile section and quick links to Contact, FAQ, and placeholder sections for saved items and delivery addresses.",
   "frontend/src/pages/FaqPage.tsx": "FAQ page with collapsible accordion displaying questions about shelf life, storage, ingredients, ordering, delivery, women-led production, and product quality.",
   "frontend/src/pages/ContactPage.tsx": "Contact page displaying phone number (9785674345), location (Mulund East), and editable input fields for email and Instagram handle with business hours information.",
-  "frontend/src/index.css": "Global styles with warm, earthy OKLCH color palette inspired by Indian spices (terracotta primary, warm beige secondary, golden accent) for both light and dark modes, plus scrollbar-hide utility.",
-  "frontend/tailwind.config.js": "Tailwind configuration extending the theme with warm color tokens, Inter font family, custom border radius, and animation utilities for the food brand aesthetic."
+  "frontend/src/index.css": "Global styles with warm, earthy OKLCH color palette, scrollbar-hide utility, and Obra Letra font import (using Libre Baskerville as the closest available Google Font alternative).",
+  "frontend/tailwind.config.js": "Tailwind configuration extending the theme with warm color tokens, Inter and Obra Letra (Libre Baskerville) font families, custom border radius, and animation utilities.",
+  "frontend/index.html": "HTML entry point with updated document title \"Bao Saras - Thepla Nani ke haath ka swaad\"."
 }

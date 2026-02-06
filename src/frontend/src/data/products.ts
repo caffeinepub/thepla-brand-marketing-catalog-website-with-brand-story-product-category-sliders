@@ -50,14 +50,14 @@ export const theplas: Product[] = [
     image: '/assets/generated/thepla-spinach.dim_1024x1024.png',
     category: 'Short Duration (1 Day)',
   },
-  // Diet Conscious
+  // Nutrition Based
   {
     id: 'multigrain-thepla',
     name: 'Multigrain Thepla',
     price: 165,
     packSize: 'Piece of 5',
     image: '/assets/generated/thepla-multigrain.dim_1024x1024.png',
-    category: 'Diet Conscious',
+    category: 'Nutrition Based',
   },
   {
     id: 'bajra-wheat-thepla',
@@ -65,7 +65,7 @@ export const theplas: Product[] = [
     price: 95,
     packSize: 'Piece of 5',
     image: '/assets/generated/thepla-bajra-wheat.dim_1024x1024.png',
-    category: 'Diet Conscious',
+    category: 'Nutrition Based',
   },
   {
     id: 'nachani-thepla',
@@ -73,7 +73,7 @@ export const theplas: Product[] = [
     price: 128,
     packSize: 'Piece of 5',
     image: '/assets/generated/thepla-nachani.dim_1024x1024.png',
-    category: 'Diet Conscious',
+    category: 'Nutrition Based',
   },
 ];
 
@@ -139,5 +139,5 @@ export const otherProducts: Product[] = [
 export const categories = [
   'Long Duration (3 Months)',
   'Short Duration (1 Day)',
-  'Diet Conscious',
+  'Nutrition Based',
 ];

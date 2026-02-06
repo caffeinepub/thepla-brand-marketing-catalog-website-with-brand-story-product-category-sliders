@@ -1,21 +1,46 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Change Women empowerment section paragraph text to black on Home page",
+  "title": "Update Bao Saras header branding (default logo + dark brown brand name)",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Update the “Empowering Women Through Griha Mahila Udyog” section on the Home page so its paragraph/body text renders in black instead of white, without affecting other sections.",
+      "summary": "Add the generated Bao Saras logo as the default static logo and ensure Header falls back to it when no custom logo is stored in localStorage (without changing existing upload persistence behavior).",
       "acceptanceCriteria": [
-        "On the Home page, the paragraph text in the “Empowering Women Through Griha Mahila Udyog” section is black (not white).",
-        "No other sections on the Home page have their text colors changed.",
-        "The change is implemented via Tailwind/CSS classes in `frontend/src/pages/HomePage.tsx` (e.g., removing/replacing `text-white` and `prose-p:text-white` within that section)."
+        "A static image file exists at `frontend/public/assets/generated/bao-saras-logo.dim_512x512.png`.",
+        "With `localStorage.logoUrl` unset/cleared, the header logo renders using `/assets/generated/bao-saras-logo.dim_512x512.png`.",
+        "The existing logo upload behavior remains functional: uploading a logo still overrides the default logo and persists across refresh via localStorage."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/HomePage.tsx",
+          "path": "frontend/public/assets/generated/bao-saras-logo.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the provided generated logo asset at this exact path so it can be served as the default Header logo (static asset)."
+        },
+        {
+          "path": "frontend/src/components/BrandProvider.tsx",
           "operation": "modify",
-          "description": "Within the “Griha Mahila Udyog” section only, replace the section subtitle paragraph Tailwind class `text-white` with a black text class (e.g., `text-black`) and replace the prose body override `prose-p:text-white` with a black text override (e.g., `prose-p:text-black`), ensuring no other Home page section styles are altered."
+          "description": "Ensure the default logo constant is explicitly exported (e.g., DEFAULT_LOGO_URL) and continues to be used as the fallback when no localStorage logo is present; do not alter existing logo upload + localStorage persistence behavior."
+        },
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Update Header to consistently reference the BrandProvider default logo constant for the no-localStorage case and for any fallback rendering, while preserving current logo upload flow and localStorage override behavior."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Change the non-editing Header brand name text color to dark brown across responsive layouts.",
+      "acceptanceCriteria": [
+        "In the non-editing state, the Header brand name text renders in a dark brown color (not the default `text-foreground`).",
+        "The color change applies consistently on desktop and mobile header layouts."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Update the non-editing brand name text styling to use a dark brown color (via Tailwind class or token), ensuring it applies in the shared Header markup for both desktop and mobile layouts."
         }
       ]
     }

@@ -2,10 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-women-empowerment-section-on-the-home-page-the-empowering-women-through-griha-mahila-udyog-section-in-frontend-src-pages-homepage-tsx-so-that-the-paragraph-body-text-renders-in-black-instead-of-white",
-      "featureTitle": "Update the Women empowerment section on the Home page (the “Empowering Women Through Griha Mahila Udyog” section in `frontend/src/pages/HomePage.tsx`) so that the paragraph/body text renders in black instead of white.",
+      "featureId": "feature-add-the-uploaded-logo-image-as-the-app-s-default-brand-logo-asset-at-assets-generated-bao-saras-logo-dim-512x512-png-frontend-static-asset-ensuring-the-header-displays-this-logo-by-default-when-no-custom-logo-is-stored-in-localstorage",
+      "featureTitle": "Add the uploaded logo image as the app’s default brand logo asset at `/assets/generated/bao-saras-logo.dim_512x512.png` (frontend static asset), ensuring the Header displays this logo by default when no custom logo is stored in localStorage.",
       "files": [
-        "frontend/src/pages/HomePage.tsx"
+        "frontend/src/components/BrandProvider.tsx",
+        "frontend/src/components/Header.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -16,6 +17,24 @@
       ],
       "testIds": [
         "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-change-the-displayed-brand-name-text-color-in-the-header-from-the-current-foreground-color-to-a-dark-brown-color",
+      "featureTitle": "Change the displayed brand name text color in the Header from the current foreground color to a dark brown color.",
+      "files": [
+        "frontend/src/components/Header.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
       ],
       "confidence": "high"
     }

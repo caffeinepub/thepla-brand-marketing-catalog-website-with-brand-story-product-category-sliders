@@ -3,15 +3,18 @@ import { createContext, useContext, useState, useEffect, type ReactNode } from '
 interface BrandContextType {
   brandName: string;
   logoUrl: string | null;
+  effectiveLogoUrl: string;
   setBrandName: (name: string) => void;
   setLogoUrl: (url: string | null) => void;
 }
 
 const BrandContext = createContext<BrandContextType | undefined>(undefined);
 
+export const DEFAULT_LOGO_URL = '/assets/generated/bao-saras-logo.dim_512x512.png';
+
 export function BrandProvider({ children }: { children: ReactNode }) {
   const [brandName, setBrandNameState] = useState<string>(() => {
-    return localStorage.getItem('brandName') || 'Your Brand Name';
+    return localStorage.getItem('brandName') || 'Bao Saras';
   });
   
   const [logoUrl, setLogoUrlState] = useState<string | null>(() => {
@@ -32,8 +35,11 @@ export function BrandProvider({ children }: { children: ReactNode }) {
     }
   };
 
+  // Effective logo URL: user-uploaded logo or default logo
+  const effectiveLogoUrl = logoUrl || DEFAULT_LOGO_URL;
+
   return (
-    <BrandContext.Provider value={{ brandName, logoUrl, setBrandName, setLogoUrl }}>
+    <BrandContext.Provider value={{ brandName, logoUrl, effectiveLogoUrl, setBrandName, setLogoUrl }}>
       {children}
     </BrandContext.Provider>
   );

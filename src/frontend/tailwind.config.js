@@ -77,6 +77,7 @@ export default {
             },
             fontFamily: {
                 sans: ['Inter', 'system-ui', 'sans-serif'],
+                obra: ['Libre Baskerville', 'Georgia', 'serif'],
             },
             keyframes: {
                 'accordion-down': {

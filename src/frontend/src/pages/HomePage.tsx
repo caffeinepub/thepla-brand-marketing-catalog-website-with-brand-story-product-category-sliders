@@ -71,25 +71,15 @@ export default function HomePage() {
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 text-center">
               Our Story
             </h2>
-            <div className="prose prose-lg max-w-none text-foreground/80 space-y-4">
-              <p>
-                Some memories never fade. The smell of fresh methi thepla roasting on a hot tawa. The sound of bangles clinking in the afternoon quiet. A steel dabba packed carefully for school, office, or a long train journey. And that one line every Indian has heard: "Thepla rakhjo, kaam aavse."
-              </p>
-              <p>
-                For generations, thepla has been more than food. It has been care, comfort, and culture wrapped in a circle. Our story begins in those very kitchens — where women have always cooked with love, skill, and instinct, yet rarely received recognition or independence for it.
-              </p>
-              <p>
-                We saw home-makers with free afternoons, powerful hands, and priceless recipes… waiting for an opportunity. So we built one.
-              </p>
-              <p>
-                We are a thepla brand born from tradition and shaped for today's world. Every thepla we make carries the taste of home — soft, wholesome, and made the way it always was: no preservatives, no shortcuts, no compromise. Just honest ingredients and time-tested methods.
-              </p>
-              <p>
-                But what truly defines us is who makes our theplas. Our theplas are prepared by women working from their homes — women who choose financial independence without stepping away from their families. Each afternoon, while the city rushes on, these homes turn into quiet centers of strength, purpose, and pride.
-              </p>
-              <p>
-                As life gets faster, meals are often forgotten. Breakfasts are skipped. Snacks become unhealthy. Travelers, students, professionals, and Indians living far from home crave something familiar, something real.
-              </p>
+            <div className="bg-card border border-border rounded-2xl p-8 md:p-10 shadow-lg">
+              <div className="font-obra text-xs leading-relaxed space-y-4 text-foreground/90">
+                <p>
+                  Thepla is more than a meal — it's a memory. The aroma of fresh methi on a hot tawa, a steel dabba packed with care, and the quiet reassurance of "thepla rakhjo, kaam aavse." For generations, it has been India's most trusted companion on school mornings, office days, and long journeys. Rooted in tradition, our theplas are made the way they always were: with honest ingredients, no preservatives, and the warmth of home in every bite.
+                </p>
+                <p>
+                  But our story goes beyond food. Every thepla is prepared by women working from their own homes — skilled hands turning heritage recipes into livelihood and independence. As life gets faster and meals lose meaning, we bring back something familiar and real for students, professionals, travelers, and Indians far from home. This is not just convenience; it's culture with purpose, tradition with a future, and a journey that begins with one soft, warm thepla.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -97,14 +87,14 @@ export default function HomePage() {
 
       {/* Griha Mahila Udyog Section */}
       <section className="py-16 md:py-20 relative overflow-hidden">
-        {/* Background Image with Overlay */}
+        {/* Background Image with Stronger Overlay */}
         <div className="absolute inset-0 z-0">
           <img
             src="/assets/generated/women-udyog-meeting-bg.dim_1600x900.png"
             alt="Women empowerment meeting"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover blur-sm"
           />
-          <div className="absolute inset-0 bg-background/90 backdrop-blur-sm"></div>
+          <div className="absolute inset-0 bg-background/95"></div>
         </div>
 
         {/* Content */}
@@ -115,21 +105,23 @@ export default function HomePage() {
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Empowering Women Through Griha Mahila Udyog
               </h2>
-              <p className="text-lg text-black">
+              <p className="text-lg text-foreground/80">
                 Building financial independence, one home at a time
               </p>
             </div>
             
-            <div className="prose prose-lg max-w-none prose-p:text-black space-y-4 mb-12">
-              <p>
-                At the heart of our brand is a commitment to women's empowerment through our Griha Mahila Udyog initiative. We believe that every woman deserves the opportunity to earn with dignity, without having to choose between family and financial independence.
-              </p>
-              <p>
-                Our model is simple yet transformative: we partner with skilled homemakers who prepare our theplas from the comfort of their own kitchens. These women bring generations of culinary wisdom, perfected techniques, and an unmatched dedication to quality. In return, they receive fair compensation, flexible working hours, and the pride of being entrepreneurs in their own right.
-              </p>
-              <p>
-                Each thepla you enjoy represents more than just a meal — it's a step toward economic empowerment, a celebration of traditional skills, and a bridge between heritage and modernity. Through this initiative, we're not just preserving recipes; we're creating opportunities, building confidence, and fostering a community of strong, independent women.
-              </p>
+            <div className="bg-card border border-border rounded-2xl p-8 md:p-10 shadow-lg mb-12">
+              <div className="font-obra text-xs leading-relaxed space-y-4 text-black">
+                <p>
+                  At the heart of our brand is a commitment to women's empowerment through our Griha Mahila Udyog initiative. We believe that every woman deserves the opportunity to earn with dignity, without having to choose between family and financial independence.
+                </p>
+                <p>
+                  Our model is simple yet transformative: we partner with skilled homemakers who prepare our theplas from the comfort of their own kitchens. These women bring generations of culinary wisdom, perfected techniques, and an unmatched dedication to quality. In return, they receive fair compensation, flexible working hours, and the pride of being entrepreneurs in their own right.
+                </p>
+                <p>
+                  Each thepla you enjoy represents more than just a meal — it's a step toward economic empowerment, a celebration of traditional skills, and a bridge between heritage and modernity. Through this initiative, we're not just preserving recipes; we're creating opportunities, building confidence, and fostering a community of strong, independent women.
+                </p>
+              </div>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
