@@ -111,7 +111,7 @@ export default function HomePage() {
             </div>
             
             <div className="bg-card border border-border rounded-2xl p-8 md:p-10 shadow-lg mb-12">
-              <div className="font-obra text-xs leading-relaxed space-y-4 text-black">
+              <div className="font-obra text-xs leading-relaxed space-y-4 text-card-foreground">
                 <p>
                   At the heart of our brand is a commitment to women's empowerment through our Griha Mahila Udyog initiative. We believe that every woman deserves the opportunity to earn with dignity, without having to choose between family and financial independence.
                 </p>
@@ -127,21 +127,21 @@ export default function HomePage() {
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-card/95 backdrop-blur-sm p-6 rounded-xl border border-border text-center shadow-lg">
                 <Heart className="w-10 h-10 text-primary mx-auto mb-3" />
-                <h3 className="font-semibold text-foreground mb-2">Made with Care</h3>
+                <h3 className="font-semibold text-card-foreground mb-2">Made with Care</h3>
                 <p className="text-sm text-muted-foreground">
                   Every thepla is crafted with the same love and attention as a mother would give
                 </p>
               </div>
               <div className="bg-card/95 backdrop-blur-sm p-6 rounded-xl border border-border text-center shadow-lg">
                 <Award className="w-10 h-10 text-primary mx-auto mb-3" />
-                <h3 className="font-semibold text-foreground mb-2">Quality Assured</h3>
+                <h3 className="font-semibold text-card-foreground mb-2">Quality Assured</h3>
                 <p className="text-sm text-muted-foreground">
                   Traditional methods meet modern hygiene standards for the best results
                 </p>
               </div>
               <div className="bg-card/95 backdrop-blur-sm p-6 rounded-xl border border-border text-center shadow-lg">
                 <Leaf className="w-10 h-10 text-primary mx-auto mb-3" />
-                <h3 className="font-semibold text-foreground mb-2">Pure Ingredients</h3>
+                <h3 className="font-semibold text-card-foreground mb-2">Pure Ingredients</h3>
                 <p className="text-sm text-muted-foreground">
                   No preservatives, no shortcuts — just honest, wholesome food
                 </p>

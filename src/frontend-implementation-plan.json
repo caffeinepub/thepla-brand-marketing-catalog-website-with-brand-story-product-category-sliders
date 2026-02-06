@@ -1,46 +1,35 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Update Bao Saras header branding (default logo + dark brown brand name)",
+  "title": "Improve homepage and header text contrast across light/dark modes",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Add the generated Bao Saras logo as the default static logo and ensure Header falls back to it when no custom logo is stored in localStorage (without changing existing upload persistence behavior).",
+      "summary": "Ensure the Home page value proposition headings have strong, mode-safe contrast against their card backgrounds.",
       "acceptanceCriteria": [
-        "A static image file exists at `frontend/public/assets/generated/bao-saras-logo.dim_512x512.png`.",
-        "With `localStorage.logoUrl` unset/cleared, the header logo renders using `/assets/generated/bao-saras-logo.dim_512x512.png`.",
-        "The existing logo upload behavior remains functional: uploading a logo still overrides the default logo and persists across refresh via localStorage."
+        "On the Home page, the headings \"Made with Care\", \"Quality Assured\", and \"Pure Ingredients\" are visibly readable (no low-contrast/washed-out appearance) in light mode.",
+        "On the Home page, the headings \"Made with Care\", \"Quality Assured\", and \"Pure Ingredients\" are visibly readable (no low-contrast/washed-out appearance) in dark mode."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/generated/bao-saras-logo.dim_512x512.png",
-          "operation": "create",
-          "description": "Add the provided generated logo asset at this exact path so it can be served as the default Header logo (static asset)."
-        },
-        {
-          "path": "frontend/src/components/BrandProvider.tsx",
+          "path": "frontend/src/pages/HomePage.tsx",
           "operation": "modify",
-          "description": "Ensure the default logo constant is explicitly exported (e.g., DEFAULT_LOGO_URL) and continues to be used as the fallback when no localStorage logo is present; do not alter existing logo upload + localStorage persistence behavior."
-        },
-        {
-          "path": "frontend/src/components/Header.tsx",
-          "operation": "modify",
-          "description": "Update Header to consistently reference the BrandProvider default logo constant for the no-localStorage case and for any fallback rendering, while preserving current logo upload flow and localStorage override behavior."
+          "description": "Update the value proposition card heading styles (the three h3 elements) to use theme tokens intended for text on card backgrounds (e.g., card-foreground/foreground without opacity) so the headings maintain strong contrast in both light and dark modes."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Change the non-editing Header brand name text color to dark brown across responsive layouts.",
+      "summary": "Remove hardcoded header brand-name color and use theme-aware styling that preserves contrast in light/dark modes.",
       "acceptanceCriteria": [
-        "In the non-editing state, the Header brand name text renders in a dark brown color (not the default `text-foreground`).",
-        "The color change applies consistently on desktop and mobile header layouts."
+        "In the sticky header, the brand name text (e.g., \"BAU SARAS\") is clearly readable in light mode.",
+        "In the sticky header, the brand name text (e.g., \"BAU SARAS\") is clearly readable in dark mode."
       ],
       "file_operations": [
         {
           "path": "frontend/src/components/Header.tsx",
           "operation": "modify",
-          "description": "Update the non-editing brand name text styling to use a dark brown color (via Tailwind class or token), ensuring it applies in the shared Header markup for both desktop and mobile layouts."
+          "description": "Replace the hardcoded brand name text color with theme-based classes (foreground/card-foreground/primary as appropriate) so \"BAU SARAS\" remains high-contrast on the header background in both light and dark modes."
         }
       ]
     }

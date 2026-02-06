@@ -96,7 +96,7 @@ export default function Header() {
               </div>
             ) : (
               <div className="flex items-center gap-2">
-                <h1 className="text-xl font-bold text-[#5D4037]">{brandName}</h1>
+                <h1 className="text-xl font-bold text-foreground">{brandName}</h1>
                 <button
                   onClick={(e) => {
                     e.preventDefault();

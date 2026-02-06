@@ -8,5 +8,4 @@ export interface None {
 }
 export type Option<T> = Some<T> | None;
 export interface backendInterface {
-    buildNotification(arg0: null): Promise<void>;
 }

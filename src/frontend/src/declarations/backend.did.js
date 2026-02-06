@@ -8,14 +8,10 @@
 
 import { IDL } from '@icp-sdk/core/candid';
 
-export const idlService = IDL.Service({
-  'buildNotification' : IDL.Func([IDL.Null], [], []),
-});
+export const idlService = IDL.Service({});
 
 export const idlInitArgs = [];
 
-export const idlFactory = ({ IDL }) => {
-  return IDL.Service({ 'buildNotification' : IDL.Func([IDL.Null], [], []) });
-};
+export const idlFactory = ({ IDL }) => { return IDL.Service({}); };
 
 export const init = ({ IDL }) => { return []; };

@@ -1,66 +1,53 @@
 {
   "kind": "build_request",
-  "title": "Update branding: set uploaded logo as default and change brand name color to dark brown",
+  "title": "Improve text contrast for homepage value props and brand name",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Add the uploaded logo image as the app’s default brand logo asset at `/assets/generated/bao-saras-logo.dim_512x512.png` (frontend static asset), ensuring the Header displays this logo by default when no custom logo is stored in localStorage.",
+      "text": "Update the text color styling so the homepage value proposition headings \"Made with Care\", \"Quality Assured\", and \"Pure Ingredients\" remain clearly readable with strong contrast against their card backgrounds in both light mode and dark mode.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "recent-messages"
         ],
         "quotes": [
-          "ADD THIS LOGO AND CHANGE THE COLOUR OF BRAND NAME TO DARK BROWN"
+          "make the font colour visible in made with care Quality Assured pure ingredients and brand BAU SARAS"
         ]
       },
       "acceptanceCriteria": [
-        "A static image file exists at `frontend/public/assets/generated/bao-saras-logo.dim_512x512.png`.",
-        "With `localStorage.logoUrl` unset/cleared, the header logo renders using `/assets/generated/bao-saras-logo.dim_512x512.png`.",
-        "The existing logo upload behavior remains functional: uploading a logo still overrides the default logo and persists across refresh via localStorage."
+        "On the Home page, the headings \"Made with Care\", \"Quality Assured\", and \"Pure Ingredients\" are visibly readable (no low-contrast/washed-out appearance) in light mode.",
+        "On the Home page, the headings \"Made with Care\", \"Quality Assured\", and \"Pure Ingredients\" are visibly readable (no low-contrast/washed-out appearance) in dark mode."
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Change the displayed brand name text color in the Header from the current foreground color to a dark brown color.",
+      "text": "Update the header brand name text styling so the brand name \"BAU SARAS\" remains clearly readable with strong contrast against the header background in both light mode and dark mode (avoid a hardcoded color that becomes low-contrast).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "recent-messages"
         ],
         "quotes": [
-          "ADD THIS LOGO AND CHANGE THE COLOUR OF BRAND NAME TO DARK BROWN"
+          "make the font colour visible in made with care Quality Assured pure ingredients and brand BAU SARAS"
         ]
       },
       "acceptanceCriteria": [
-        "In the non-editing state, the Header brand name text renders in a dark brown color (not the default `text-foreground`).",
-        "The color change applies consistently on desktop and mobile header layouts."
+        "In the sticky header, the brand name text (e.g., \"BAU SARAS\") is clearly readable in light mode.",
+        "In the sticky header, the brand name text (e.g., \"BAU SARAS\") is clearly readable in dark mode."
       ]
     }
   ],
   "constraints": [
-    "Do not modify any files under `frontend/src/components/ui` (read-only).",
-    "Do not change the existing logo upload + localStorage persistence behavior."
+    "Do not edit files under frontend/src/components/ui (read-only).",
+    "Do not modify the Internet Identity hooks in frontend/src/hooks (read-only paths in system context)."
   ],
   "nonGoals": [
-    "Redesigning other parts of the UI beyond the logo asset and the brand name text color.",
-    "Backend changes (no Motoko changes required)."
+    "No changes to product data, cart behavior, or navigation.",
+    "No changes to logo upload behavior or brand-name editing behavior beyond text color/styling."
   ],
   "imageRequirements": {
-    "required": [
-      "Cleaned/extracted version of the uploaded logo with transparent background, centered and padded for square display (bao-saras-logo.dim_512x512.png)"
-    ],
+    "required": [],
     "edits": []
-  },
-  "userProfileUpdate": {
-    "goalsToAdd": [],
-    "goalsToRemove": [],
-    "preferencesToAdd": [],
-    "preferencesToRemove": [],
-    "miscToAdd": [],
-    "miscToRemove": [],
-    "fieldsToSet": {},
-    "fieldsToDelete": []
   }
 }

@@ -10,7 +10,7 @@ interface BrandContextType {
 
 const BrandContext = createContext<BrandContextType | undefined>(undefined);
 
-export const DEFAULT_LOGO_URL = '/assets/generated/bao-saras-logo.dim_512x512.png';
+export const DEFAULT_LOGO_URL = '/assets/WhatsApp Image 2026-02-06 at 3.54.58 PM.jpeg';
 
 export function BrandProvider({ children }: { children: ReactNode }) {
   const [brandName, setBrandNameState] = useState<string>(() => {

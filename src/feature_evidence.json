@@ -2,11 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-add-the-uploaded-logo-image-as-the-app-s-default-brand-logo-asset-at-assets-generated-bao-saras-logo-dim-512x512-png-frontend-static-asset-ensuring-the-header-displays-this-logo-by-default-when-no-custom-logo-is-stored-in-localstorage",
-      "featureTitle": "Add the uploaded logo image as the app’s default brand logo asset at `/assets/generated/bao-saras-logo.dim_512x512.png` (frontend static asset), ensuring the Header displays this logo by default when no custom logo is stored in localStorage.",
+      "featureId": "feature-update-the-text-color-styling-so-the-homepage-value-proposition-headings-made-with-care-quality-assured-and-pure-ingredients-remain-clearly-readable-with-strong-contrast-against-their-card-backgrounds-in-both-light-mode-and-dark-mode",
+      "featureTitle": "Update the text color styling so the homepage value proposition headings \"Made with Care\", \"Quality Assured\", and \"Pure Ingredients\" remain clearly readable with strong contrast against their card backgrounds in both light mode and dark mode.",
       "files": [
-        "frontend/src/components/BrandProvider.tsx",
-        "frontend/src/components/Header.tsx"
+        "frontend/src/pages/HomePage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -21,8 +20,8 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-change-the-displayed-brand-name-text-color-in-the-header-from-the-current-foreground-color-to-a-dark-brown-color",
-      "featureTitle": "Change the displayed brand name text color in the Header from the current foreground color to a dark brown color.",
+      "featureId": "feature-update-the-header-brand-name-text-styling-so-the-brand-name-bau-saras-remains-clearly-readable-with-strong-contrast-against-the-header-background-in-both-light-mode-and-dark-mode-avoid-a-hardcoded-color-that-becomes-low-contrast",
+      "featureTitle": "Update the header brand name text styling so the brand name \"BAU SARAS\" remains clearly readable with strong contrast against the header background in both light mode and dark mode (avoid a hardcoded color that becomes low-contrast).",
       "files": [
         "frontend/src/components/Header.tsx"
       ],
