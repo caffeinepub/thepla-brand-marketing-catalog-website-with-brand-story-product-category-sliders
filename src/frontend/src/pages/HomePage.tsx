@@ -115,12 +115,12 @@ export default function HomePage() {
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Empowering Women Through Griha Mahila Udyog
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-lg text-black">
                 Building financial independence, one home at a time
               </p>
             </div>
             
-            <div className="prose prose-lg max-w-none text-foreground/80 space-y-4 mb-12">
+            <div className="prose prose-lg max-w-none prose-p:text-black space-y-4 mb-12">
               <p>
                 At the heart of our brand is a commitment to women's empowerment through our Griha Mahila Udyog initiative. We believe that every woman deserves the opportunity to earn with dignity, without having to choose between family and financial independence.
               </p>

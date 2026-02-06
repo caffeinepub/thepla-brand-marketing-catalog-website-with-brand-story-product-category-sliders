@@ -1,6 +1,23 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Untitled request",
-  "requirements": []
+  "title": "Change Women empowerment section paragraph text to black on Home page",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Update the “Empowering Women Through Griha Mahila Udyog” section on the Home page so its paragraph/body text renders in black instead of white, without affecting other sections.",
+      "acceptanceCriteria": [
+        "On the Home page, the paragraph text in the “Empowering Women Through Griha Mahila Udyog” section is black (not white).",
+        "No other sections on the Home page have their text colors changed.",
+        "The change is implemented via Tailwind/CSS classes in `frontend/src/pages/HomePage.tsx` (e.g., removing/replacing `text-white` and `prose-p:text-white` within that section)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Within the “Griha Mahila Udyog” section only, replace the section subtitle paragraph Tailwind class `text-white` with a black text class (e.g., `text-black`) and replace the prose body override `prose-p:text-white` with a black text override (e.g., `prose-p:text-black`), ensuring no other Home page section styles are altered."
+        }
+      ]
+    }
+  ]
 }

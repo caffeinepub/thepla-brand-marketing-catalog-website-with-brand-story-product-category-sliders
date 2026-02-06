@@ -1,12 +1,47 @@
 {
   "kind": "build_request",
-  "title": "Untitled request",
+  "title": "Change Women section text color to black on Home page",
   "priority": "normal",
-  "requirements": [],
-  "constraints": [],
-  "nonGoals": [],
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Update the Women empowerment section on the Home page (the “Empowering Women Through Griha Mahila Udyog” section in `frontend/src/pages/HomePage.tsx`) so that the paragraph/body text renders in black instead of white.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "change the women section colour to black"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On the Home page, the paragraph text in the “Empowering Women Through Griha Mahila Udyog” section is black (not white).",
+        "No other sections on the Home page have their text colors changed.",
+        "The change is implemented via Tailwind/CSS classes in `frontend/src/pages/HomePage.tsx` (e.g., removing/replacing `text-white` and `prose-p:text-white` within that section)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify any files under `frontend/src/components/ui`.",
+    "Do not modify any files listed as immutable in SYSTEM_CONTEXT."
+  ],
+  "nonGoals": [
+    "Do not change the background image, overlay opacity, or layout of the Women empowerment section.",
+    "Do not change product/cart behavior or any non-UI logic."
+  ],
   "imageRequirements": {
     "required": [],
     "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }
